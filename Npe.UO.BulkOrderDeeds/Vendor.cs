@@ -1,6 +1,7 @@
 ﻿using Npe.UO.BulkOrderDeeds.Internal;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 
 namespace Npe.UO.BulkOrderDeeds
@@ -74,6 +75,37 @@ namespace Npe.UO.BulkOrderDeeds
 
             writer.WriteEndElement();
             writer.WriteEndElement();
+        }
+
+        internal static IEnumerable<Vendor> LoadFromXml(XmlNode rootNode)
+        {
+            var retVal = new List<Vendor>();
+            var nodes = rootNode.SelectNodes($"{XmlRootName}/{_XmlItemName}");
+
+            if (nodes != null)
+            {
+                foreach (var node in nodes.OfType<XmlNode>())
+                {
+                    try
+                    {
+                        var idString = node.Attributes[_IdAttributeName].Value;
+                        var name = node.Attributes[_NameAttributeName].Value;
+                        var bulkOrderDeedBooks = BulkOrderDeedBook.LoadFromXml(node);
+
+                        if (!String.IsNullOrEmpty(idString) && !String.IsNullOrEmpty(name))
+                        {
+                            var id = Guid.Parse(idString);
+
+                            retVal.Add(new Vendor(id, name, bulkOrderDeedBooks));
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+
+            return retVal;
         }
 
         private void OnBulkOrderDeedBookAdded(BulkOrderDeedBook bulkOrderDeedBook)

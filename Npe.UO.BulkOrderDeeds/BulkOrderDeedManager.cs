@@ -308,7 +308,15 @@ namespace Npe.UO.BulkOrderDeeds
 
         private void LoadCollectionInLock()
         {
-            // TODO
+            if (!File.Exists(_CollectionFullPath)) return;
+
+            var xmlDocument = new XmlDocument();
+
+            xmlDocument.Load(_CollectionFullPath);
+
+            var bulkOrderDeeds = CollectionBulkOrderDeed.LoadFromXml(xmlDocument);
+
+            _Collection.AddRange(bulkOrderDeeds);
         }
 
         private void SaveCollection()
@@ -341,13 +349,21 @@ namespace Npe.UO.BulkOrderDeeds
                 writer.WriteEndElement();
                 writer.Close();
 
-                File.WriteAllText(_BulkOrderDeedBooksFullPath, output.ToString(), Encoding.UTF8);
+                File.WriteAllText(_CollectionFullPath, output.ToString(), Encoding.UTF8);
             }
         }
 
         private void LoadVendorsInLock()
         {
-            // TODO
+            if (!File.Exists(_VendorsFullPath)) return;
+
+            var xmlDocument = new XmlDocument();
+
+            xmlDocument.Load(_VendorsFullPath);
+
+            var vendors = Vendor.LoadFromXml(xmlDocument);
+
+            _Vendors.AddRange(vendors);
         }
 
         private void SaveVendors()
@@ -386,7 +402,15 @@ namespace Npe.UO.BulkOrderDeeds
 
         private void LoadBulkOrderDeedBooksInLock()
         {
-            // TODO
+            if (!File.Exists(_BulkOrderDeedBooksFullPath)) return;
+
+            var xmlDocument = new XmlDocument();
+
+            xmlDocument.Load(_BulkOrderDeedBooksFullPath);
+
+            var bulkOrderDeedBooks = BulkOrderDeedBook.LoadFromXml(xmlDocument);
+
+            _BulkOrderDeedBooks.AddRange(bulkOrderDeedBooks);
         }
 
         private void SaveBulkOrderDeedBooks()

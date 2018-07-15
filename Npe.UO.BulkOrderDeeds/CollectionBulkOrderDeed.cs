@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using Npe.UO.BulkOrderDeeds.Internal;
 
@@ -28,6 +29,7 @@ namespace Npe.UO.BulkOrderDeeds
         public string Material { get; }
         public bool Exceptional { get; }
         public BulkOrderDeedLocation Location { get; }
+        public abstract BulkOrderDeedType BulkOrderDeedType { get; }
 
         private readonly List<CollectionBulkOrderDeedItem> _CollectionBulkOrderDeedItems;
         public IReadOnlyCollection<CollectionBulkOrderDeedItem> CollectionBulkOrderDeedItems => _CollectionBulkOrderDeedItems.AsReadOnly();
@@ -63,45 +65,30 @@ namespace Npe.UO.BulkOrderDeeds
             Location = new BulkOrderDeedLocation(Vendor.None, BulkOrderDeedBook.None);
         }
 
-        protected CollectionBulkOrderDeed(string id, string profession, string bulkOrderDeedNameMatch, BulkOrderDeedType bulkOrderDeedType, int quantity, bool exceptional, string material)
+        protected CollectionBulkOrderDeed(Guid id, string profession, string bulkOrderDeedNameMatch, BulkOrderDeedType bulkOrderDeedType, int quantity, bool exceptional, string material, IEnumerable<CollectionBulkOrderDeedItem> bulkOrderDeedItems)
         {
-            Guard.ArgumentNotNullOrEmpty(nameof(id), id);
+            Guard.ArgumentNotEmpty(nameof(id), id);
             Guard.ArgumentNotNullOrEmpty(nameof(profession), profession);
             Guard.ArgumentNotNullOrEmpty(nameof(bulkOrderDeedNameMatch), bulkOrderDeedNameMatch);
             Guard.ArgumentNotOfValue(nameof(quantity), quantity, BulkOrderDeedManager.PossibleQuantities);
+            Guard.ArgumentNotNull(nameof(bulkOrderDeedItems), bulkOrderDeedItems);
             // Note that material CAN be null (for instance, for inscription bulk order deeds).
 
-            Id = Guid.Parse(id);
+            Id = id;
             Profession = profession;
             BulkOrderDeedDefinition = BulkOrderDeedManager.Instance.GetBulkOrderDeedDefinition(profession, bulkOrderDeedNameMatch, bulkOrderDeedType);
             Quantity = quantity;
             Material = material ?? String.Empty;
             Exceptional = exceptional;
-            _CollectionBulkOrderDeedItems = new List<CollectionBulkOrderDeedItem>();
-
-            if (BulkOrderDeedDefinition is SmallBulkOrderDeedDefinition smallBulkOrderDeedDefinition)
-            {
-                _CollectionBulkOrderDeedItems.Add(new CollectionBulkOrderDeedItem(smallBulkOrderDeedDefinition.Name, Quantity));
-            }
-
-            if (BulkOrderDeedDefinition is LargeBulkOrderDeedDefinition largeBulkOrderDeedDefinition)
-            {
-                foreach (var smallBulkOrderDeed in largeBulkOrderDeedDefinition.SmallBulkOrderDeedDefinitions)
-                {
-                    _CollectionBulkOrderDeedItems.Add(new CollectionBulkOrderDeedItem(smallBulkOrderDeed.Name, Quantity));
-                }
-            }
-
+            _CollectionBulkOrderDeedItems = new List<CollectionBulkOrderDeedItem>(bulkOrderDeedItems);
             Location = new BulkOrderDeedLocation(Vendor.None, BulkOrderDeedBook.None);
-
-            // TODO:  This is here when loading from files...we need to also set the completed counts.
         }
 
         internal void SaveToXml(XmlWriter writer)
         {
             writer.WriteStartElement(_XmlItemName);
             writer.WriteAttributeString(_IdAttributeName, Id.ToString());
-            writer.WriteAttributeString(_TypeAttributeName, BulkOrderDeedDefinition is SmallBulkOrderDeedDefinition ? "Small" : "Large");
+            writer.WriteAttributeString(_TypeAttributeName, BulkOrderDeedType.ToString());
             writer.WriteAttributeString(_ProfessionAttributeName, Profession);
             writer.WriteAttributeString(_NameAttributeName, DisplayName);
             writer.WriteAttributeString(_QuantityAttributeName, Quantity.ToString());
@@ -118,6 +105,52 @@ namespace Npe.UO.BulkOrderDeeds
 
             writer.WriteEndElement();
             writer.WriteEndElement();
+        }
+
+        internal static IEnumerable<CollectionBulkOrderDeed> LoadFromXml(XmlNode rootNode)
+        {
+            var retVal = new List<CollectionBulkOrderDeed>();
+            var nodes = rootNode.SelectNodes($"{XmlRootName}/{_XmlItemName}");
+
+            if (nodes != null)
+            {
+                foreach (var node in nodes.OfType<XmlNode>())
+                {
+                    try
+                    {
+                        var idString = node.Attributes[_IdAttributeName].Value;
+                        var profession = node.Attributes[_ProfessionAttributeName].Value;
+                        var name = node.Attributes[_NameAttributeName].Value;
+                        var bulkOrderDeedTypeString = node.Attributes[_TypeAttributeName].Value;
+                        var quantityString = node.Attributes[_QuantityAttributeName].Value;
+                        var exceptionalString = node.Attributes[_ExceptionalAttributeName].Value;
+                        var material = node.Attributes[_MaterialAttributeName].Value;
+
+                        if (!String.IsNullOrEmpty(idString) && !String.IsNullOrEmpty(name))
+                        {
+                            var id = Guid.Parse(idString);
+                            var bulkOrderDeedType = (BulkOrderDeedType)Enum.Parse(typeof(BulkOrderDeedType), bulkOrderDeedTypeString);
+                            var quantity = int.Parse(quantityString);
+                            var exceptional = bool.Parse(exceptionalString);
+                            var bulkOrderDeedItems = CollectionBulkOrderDeedItem.LoadFromXml(node, quantity);
+
+                            if (bulkOrderDeedType == BulkOrderDeedType.Small)
+                            {
+                                retVal.Add(new SmallCollectionBulkOrderDeed(id, profession, name, quantity, exceptional, material, bulkOrderDeedItems));
+                            }
+                            else if (bulkOrderDeedType == BulkOrderDeedType.Large)
+                            {
+                                retVal.Add(new LargeCollectionBulkOrderDeed(id, profession, name, quantity, exceptional, material, bulkOrderDeedItems));
+                            }
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+
+            return retVal;
         }
 
         public override string ToString()
