@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BulkOrderDeeds>
+    <Small>
+        <BulkOrderDeed name="Shafts" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Wood" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Arrows" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Wood" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Crossbow Bolts" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Wood" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Bow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Composite Bow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Yumi" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Crossbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Heavy Crossbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Repeating Crossbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Magical Shortbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Ranger's Shortbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Lightweight Shortbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Mystical Shortbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Assassin's Shortbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Elven Composite Bow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Barbed Longbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Slayer Longbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Frozen Longbow" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Longbow of Might" canBeExceptional="true" canHaveMaterial="true" />
+    </Small>
+    <Large>
+        <BulkOrderDeed type="Ammunition">
+            <Items>
+                <Item name="Arrows" />
+                <Item name="Crossbow Bolts" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Human Bows">
+            <Items>
+                <Item name="Bow" />
+                <Item name="Composite Bow" />
+                <Item name="Yumi" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Human Crossbows">
+            <Items>
+                <Item name="Crossbow" />
+                <Item name="Heavy Crossbow" />
+                <Item name="Repeating Crossbow" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Elven Bows">
+            <Items>
+                <Item name="Magical Shortbow" />
+                <Item name="Ranger's Shortbow" />
+                <Item name="Lightweight Shortbow" />
+                <Item name="Mystical Shortbow" />
+                <Item name="Assassin's Shortbow" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Elven Longbows">
+            <Items>
+                <Item name="Elven Composite Bow" />
+                <Item name="Barbed Longbow" />
+                <Item name="Slayer Longbow" />
+                <Item name="Frozen Longbow" />
+                <Item name="Longbow of Might" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+</BulkOrderDeeds>

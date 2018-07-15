@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BulkOrderDeeds>
+    <Small>
+        <BulkOrderDeed name="Lesser Heal" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Lesser Cure" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Lesser Poison" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Lesser Explosion" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Refresh" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Heal" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Cure" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Refreshment" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Agility" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Strength" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Explosion" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Confusion" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Conflagration" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Explosion" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Confusion" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Conflagration" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Poison" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Greater Poison" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Parasitic Poison" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Darkglow Poison" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Deadly Poison" canBeExceptional="false" canHaveMaterial="false" />
+        <BulkOrderDeed name="Nexus Core" canBeExceptional="false" canHaveMaterial="false" />
+    </Small>
+    <Large>
+        <BulkOrderDeed type="Lesser Potions">
+            <Items>
+                <Item name="Lesser Heal" />
+                <Item name="Lesser Cure" />
+                <Item name="Lesser Poison" />
+                <Item name="Lesser Explosion" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Regular Potions">
+            <Items>
+                <Item name="Refresh" />
+                <Item name="Heal" />
+                <Item name="Cure" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Greater Potions">
+            <Items>
+                <Item name="Greater Refreshment" />
+                <Item name="Greater Agility" />
+                <Item name="Greater Strength" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Explosive">
+            <Items>
+                <Item name="Explosion" />
+                <Item name="Confusion" />
+                <Item name="Conflagration" />
+                <Item name="Greater Explosion" />
+                <Item name="Greater Confusion" />
+                <Item name="Greater Conflagration" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Toxic">
+            <Items>
+                <Item name="Poison" />
+                <Item name="Greater Poison" />
+                <Item name="Parasitic Poison" />
+                <Item name="Darkglow Poison" />
+                <Item name="Deadly Poison" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+</BulkOrderDeeds>

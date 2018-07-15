@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointTable>
+    <Small>
+        <Entry quantity="10" exceptional="false" points="10" />
+        <Entry quantity="15" exceptional="false" points="25" />
+        <Entry quantity="20" exceptional="false" points="50" />
+        <Entry overrides="Nexus Core" quantity="10" exceptional="false" points="110" />
+        <Entry overrides="Nexus Core" quantity="15" exceptional="false" points="125" />
+        <Entry overrides="Nexus Core" quantity="20" exceptional="false" points="150" />
+    </Small>
+    <Large>
+        <Entry quantity="10" exceptional="false" type="Lesser Potions" points="210" />
+        <Entry quantity="15" exceptional="false" type="Lesser Potions" points="225" />
+        <Entry quantity="20" exceptional="false" type="Lesser Potions" points="250" />
+        <Entry quantity="10" exceptional="false" type="Regular Potions" points="260" />
+        <Entry quantity="15" exceptional="false" type="Regular Potions" points="275" />
+        <Entry quantity="20" exceptional="false" type="Regular Potions" points="300" />
+        <Entry quantity="10" exceptional="false" type="Greater Potions" points="310" />
+        <Entry quantity="15" exceptional="false" type="Greater Potions" points="325" />
+        <Entry quantity="20" exceptional="false" type="Greater Potions" points="350" />
+        <Entry quantity="10" exceptional="false" type="Explosive" points="360" />
+        <Entry quantity="15" exceptional="false" type="Explosive" points="375" />
+        <Entry quantity="20" exceptional="false" type="Explosive" points="400" />
+        <Entry quantity="10" exceptional="false" type="Toxic" points="410" />
+        <Entry quantity="15" exceptional="false" type="Toxic" points="425" />
+        <Entry quantity="20" exceptional="false" type="Toxic" points="450" />
+    </Large>
+</PointTable>

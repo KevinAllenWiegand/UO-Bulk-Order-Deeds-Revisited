@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointRewards>
+    <Reward name="Dovetail Saw" points="10" icon="dovetail-saw.gif" />
+    <Reward name="Reward Title - Woodworker" points="25" icon="deed.gif" />
+    <Reward name="Reward Title - Builder" points="50" icon="deed.gif" />
+    <Reward name="Reward Title - Craftsman" points="250" icon="deed.gif" />
+    <Reward name="Master Craftsman Talisman (10 charges)" points="300" icon="MCtali-carpenter.gif" />
+    <Reward name="Woodsman&apos;s Yew Talisman" points="350" icon="talisman-yew.gif" />
+    <Reward name="Master Craftsman Talisman (25 charges)" points="450" icon="MCtali-carpenter.gif" />
+    <Reward name="Dull Copper Runic Mallet &amp; Chisel" points="450" icon="mallet_dullcopper.gif" />
+    <Reward name="Shadow Iron Runic Mallet &amp; Chisel" points="500" icon="mallet_shadow.gif" />
+    <Reward name="Lumberjack&apos;s Yew Map" points="500" icon="bodmap-yew.gif" />
+    <Reward name="Oak Runic Tool" points="550" icon="dovetail-saw-oak.gif" />
+    <Reward name="Copper Runic Mallet &amp; Chisel" points="600" icon="mallet_copper.gif" />
+    <Reward name="Bronze Runic Mallet &amp; Chisel" points="650" icon="mallet_bronze.gif" />
+    <Reward name="Woodsman&apos;s Heartwood Talisman" points="650" icon="talisman-heartwood.gif" />
+    <Reward name="Lumberjack&apos;s Heartwood Map" points="700" icon="bodmap-heartwood.gif" />
+    <Reward name="Ash Runic Tool" points="750" icon="dovetail-saw-ash.gif" />
+    <Reward name="Master Craftsman Talisman (50 charges)" points="800" icon="MCtali-carpenter.gif" />
+    <Reward name="Woodsman&apos;s Bloodwood Talisman" points="850" icon="talisman-bloodwood.gif" />
+    <Reward name="Lumberjack&apos;s Bloodwood Map" points="900" icon="bodmap-bloodwood.gif" />
+    <Reward name="Gold Runic Mallet &amp; Chisel (30 uses)" points="900" icon="mallet_gold.gif" />
+    <Reward name="Yew Runic Tool" points="950" icon="dovetail-saw-yew.gif" />
+    <Reward name="Woodsman&apos;s Frostwood Talisman" points="1000" icon="talisman-frostwood.gif" />
+    <Reward name="Agapite Runic Mallet &amp; Chisel (25 uses)" points="1000" icon="mallet_agapite.gif" />
+    <Reward name="Lumberjack&amp;s Frostwood Map" points="1050" icon="bodmap-frostwood.gif" />
+    <Reward name="Verite Runic Mallet &amp; Chisel (20 uses)" points="1100" icon="mallet_verite.gif" />
+    <Reward name="Heartwood Runic Tool" points="1150" icon="dovetail-saw-heartwood.gif" />
+    <Reward name="Valorite Runic Mallet &amp; Chisel (15 uses)" points="1150" icon="mallet_valorite.gif" />
+</PointRewards>

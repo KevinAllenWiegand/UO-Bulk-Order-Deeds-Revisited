@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UO Bulk Order Deeds Revisited", "UO Bulk Order Deeds Revisited\UO Bulk Order Deeds Revisited.csproj", "{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Npe.UO.BulkOrderDeeds", "Npe.UO.BulkOrderDeeds\Npe.UO.BulkOrderDeeds.csproj", "{933571E7-4AD5-45C3-87EB-1405763C7D2B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{9D9DFC50-69EE-46F4-91F5-363F540762B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{954010D1-149C-4932-8457-C58C58E2C10B}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		Notes.txt = Notes.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertOldBulkOrderDeedDataFiles", "ConvertOldBulkOrderDeedDataFiles\ConvertOldBulkOrderDeedDataFiles.csproj", "{B96DD483-CE14-499C-92CB-0F692A3652D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{060C20C7-C285-4B5E-B4DD-365CC8136D46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{933571E7-4AD5-45C3-87EB-1405763C7D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{933571E7-4AD5-45C3-87EB-1405763C7D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{933571E7-4AD5-45C3-87EB-1405763C7D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{933571E7-4AD5-45C3-87EB-1405763C7D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D9DFC50-69EE-46F4-91F5-363F540762B5}.Debug|Any CPU.ActiveCfg = Debug
+		{9D9DFC50-69EE-46F4-91F5-363F540762B5}.Release|Any CPU.ActiveCfg = Release
+		{B96DD483-CE14-499C-92CB-0F692A3652D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96DD483-CE14-499C-92CB-0F692A3652D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96DD483-CE14-499C-92CB-0F692A3652D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96DD483-CE14-499C-92CB-0F692A3652D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {600332DA-5A1B-4AE7-A37E-277EB166DCA1}
+	EndGlobalSection
+EndGlobal

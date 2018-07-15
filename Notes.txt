@@ -1,0 +1,12 @@
+How to check if a BOD can be bribed:
+
+    if quantity < 20 then return true
+    if quality != exceptional && BOD can be exceptional then return true
+    if material != highest material && BOD can be other than Wood/Iron then return true
+
+    return false
+
+Put in ability to submit bug reports.
+Put in ability to submit Bulk Order Deeds export files.
+
+Silent execution of install:  msiexec /i UOBulkOrderDeedsRevisited.msi /quiet /norestart /qn /L*V "C:\Temp\UOBulkOrderDeedsRevisited.log"

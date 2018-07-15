@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointRewards>
+    <Reward name="Mortar &amp; Pestle" points="10" icon="mortar_and_pestle.gif" />
+    <Reward name="Reward Title - Brewer" points="25" icon="deed.gif" />
+    <Reward name="Reward Title - Concocter" points="50" icon="deed.gif" />
+    <Reward name="Reward Title - Distiller" points="210" icon="deed.gif" />
+    <Reward name="Natural Dye - Wind Azul" points="225" icon="bod-wind-azul.gif" />
+    <Reward name="Ash Cauldron of Transmutation" points="250" icon="cauldron-ash.gif" />
+    <Reward name="Bronze Cauldron of Transmutation" points="260" icon="cauldron-bronze.gif" />
+    <Reward name="Master Craftsman Talisman (10 charges)" points="275" icon="MCtali-alchemist.gif" />
+    <Reward name="Yew Cauldron of Transmutation" points="300" icon="cauldron-yew.gif" />
+    <Reward name="Gold Cauldron of Transmutation" points="310" icon="cauldron-gold.gif" />
+    <Reward name="Master Craftsman Talisman (25 charges)" points="325" icon="MCtali-alchemist.gif" />
+    <Reward name="Agapite Cauldron of Transmutation" points="350" icon="cauldron-agapite.gif" />
+    <Reward name="Heartwood Cauldron of Transmutation" points="360" icon="cauldron-heartwood.gif" />
+    <Reward name="Master Craftsman Talisman (50 charges)" points="375" icon="MCtali-alchemist.gif" />
+    <Reward name="Natural Dye - Dull Ruby" points="400" icon="bod-dull-ruby.gif" />
+    <Reward name="Bloodwood Cauldron of Transmutation" points="410" icon="cauldron-bloodwood.gif" />
+    <Reward name="Natural Dye - Poppy White" points="425" icon="bod-poppy-white.gif" />
+    <Reward name="Verite Cauldron of Transmutation" points="450" icon="cauldron-verite.gif" />
+</PointRewards>

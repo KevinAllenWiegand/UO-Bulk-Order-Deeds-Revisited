@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Profession>
+    <Name>Inscription</Name>
+    <BankedPointsFactor>
+        <Small>0.02</Small>
+        <Large>0.2</Large>
+    </BankedPointsFactor>
+</Profession>

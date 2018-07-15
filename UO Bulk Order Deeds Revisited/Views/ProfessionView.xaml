@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="UO_Bulk_Order_Deeds.Views.ProfessionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UO_Bulk_Order_Deeds.Views"
+             xmlns:converters="clr-namespace:UO_Bulk_Order_Deeds.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToReversedVisibilityConverter" TrueVisibility="Collapsed" FalseVisibility="Visible" />
+        <converters:DoubleToStringConverter x:Key="DoubleToStringConverter" Format="0.0000" />
+    </UserControl.Resources>
+    <Grid Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="{Binding Name}" Style="{StaticResource ProfessionLabel}"></Label>
+            <Line X1="0" Y1="0" X2="1" Y2="0" Stroke="White" StrokeThickness="2" Stretch="Uniform" Margin="0,2,0,5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <Grid Width="{Binding BulkOrderDeedContainerWidth}" Margin="0,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <Label Content="Bulk Order Deeds" Style="{StaticResource HeaderLabel}"/>
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Bulk Order Deed -->
+                        <Border Grid.Row="0" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="0,0,0,5" Padding="5">
+                            <StackPanel Margin="2">
+                                <Label Content="Bulk Order Deed" Style="{StaticResource Label}"/>
+                                <ComboBox ItemsSource="{Binding BulkOrderDeeds}" DisplayMemberPath="DisplayName" SelectedItem="{Binding SelectedBulkOrderDeed}" ToolTip="{Binding BulkOrderDeedSummary}"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Quantity -->
+                        <Border Grid.Row="1" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="0,0,0,5" Padding="5">
+                            <StackPanel Margin="2">
+                                <Label Content="Quantity" Style="{StaticResource Label}"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton GroupName="Quantity" Style="{StaticResource RadioButton}" Margin="0" Command="{Binding QuantityChangedCommand}" CommandParameter="10" IsChecked="{Binding IsQuantity10}">10</RadioButton>
+                                    <RadioButton GroupName="Quantity" Style="{StaticResource RadioButton}" Margin="5,0,0,0" Command="{Binding QuantityChangedCommand}" CommandParameter="15" IsChecked="{Binding IsQuantity15}">15</RadioButton>
+                                    <RadioButton GroupName="Quantity" Style="{StaticResource RadioButton}" Margin="5,0,0,0" Command="{Binding QuantityChangedCommand}" CommandParameter="20" IsChecked="{Binding IsQuantity20}">20</RadioButton>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Material -->
+                        <Border Grid.Row="2" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="0,0,0,5" Padding="5" Visibility="{Binding CanSelectMaterial, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel Margin="2">
+                                <Label Content="Material" Style="{StaticResource Label}"/>
+                                <ComboBox ItemsSource="{Binding Materials}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMaterial}" IsEnabled="{Binding CanSelectMaterial}"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Quality -->
+                        <Border Grid.Row="3" BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="0" Padding="5" Visibility="{Binding CanSelectQuality, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel Margin="2">
+                                <Label Content="Quality" Style="{StaticResource Label}"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton GroupName="Quality" Style="{StaticResource RadioButton}" Margin="0" IsChecked="{Binding IsNotExceptional, Mode=OneWay}">Normal</RadioButton>
+                                    <RadioButton GroupName="Quality" Style="{StaticResource RadioButton}" Margin="5,0,0,0" IsChecked="{Binding IsExceptional}">Exceptional</RadioButton>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Grid.Row="4" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="{Binding IsLargeBulkOrderDeed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Padding="5" Margin="0,0,0,5">
+                                <StackPanel HorizontalAlignment="Left">
+                                    <Label Content="Large Bulk Order Deed Items" Padding="0" Style="{StaticResource HeaderLabel}"/>
+                                    <TextBlock Text="{Binding BulkOrderDeedSummary}" Padding="0" Style="{StaticResource NormalText}"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="{Binding IsLargeBulkOrderDeed, Converter={StaticResource BooleanToReversedVisibilityConverter}}">
+                            <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Padding="5" Margin="0,0,0,5">
+                                <StackPanel HorizontalAlignment="Left">
+                                    <Label Content="Large Bulk Orders" Padding="0" Style="{StaticResource HeaderLabel}"/>
+                                    <TextBlock Text="{Binding BulkOrderDeedSummary}" Padding="0" Style="{StaticResource NormalText}"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="{Binding HasPointValue, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="The Bulk Order Deed is worth " Style="{StaticResource LargeLabel}" Margin="0" Padding="0"/>
+                                <Label Content="{Binding Points}" Style="{StaticResource LargeLabel}" Margin="0" Padding="0" Foreground="Green"/>
+                                <Label Content=" points," Style="{StaticResource LargeLabel}" Margin="0" Padding="0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="or " Style="{StaticResource LargeLabel}" Margin="0" Padding="0"/>
+                                <Label Content="{Binding BankedPoints, Converter={StaticResource DoubleToStringConverter}}" Style="{StaticResource LargeLabel}" Margin="0" Padding="0" Foreground="Green"/>
+                                <Label Content=" points if banked." Style="{StaticResource LargeLabel}" Margin="0" Padding="0"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="{Binding HasPointValue, Converter={StaticResource BooleanToReversedVisibilityConverter}}">
+                            <TextBlock Text="Select the Bulk Order Deed details" Style="{StaticResource LargeText}" Foreground="Red" Margin="0" Padding="0"/>
+                            <TextBlock Text="from above to see the point value." Style="{StaticResource LargeText}" Foreground="Red" Margin="0" Padding="0"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6" HorizontalAlignment="Center" Margin="0,5,0,5">
+                            <Button Command="{Binding AddToCollectionCommand}" Style="{StaticResource AddToCollectionButton}" ToolTip="Add To Collection">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Resources/BulkOrderDeed.gif" Style="{StaticResource HomeButtonImage}" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+                                    <Label Style="{StaticResource BoldLabel}" Foreground="Black" Content="Add To Collection" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+
+            <Grid Width="{Binding RewardTableContainerWidth}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <Label Content="Reward Table" Style="{StaticResource HeaderLabel}"/>
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,23,0">
+                    <ItemsControl ItemsSource="{Binding RewardTableEntries}" Style="{StaticResource RewardTableContainer}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource RewardTableBorder}" Background="{Binding BackgroundColor}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Grid.Column="0" Source="{Binding Icon}" Style="{StaticResource RewardTableIcon}" Stretch="None" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" Style="{StaticResource RewardTableText}" Foreground="{Binding ForegroundColor}" />
+                                        <TextBlock Grid.Column="2" Text="{Binding Points}" Style="{StaticResource RewardTableLastText}" Foreground="{Binding ForegroundColor}" />
+                                        <Button Grid.Column="3" ToolTip="Bulk Order Deeds that award this." Command="{Binding FindBulkOrderDeedsForRewardCommand}" CommandParameter="{Binding .}" Height="20" Width="20">
+                                            <Image Source="/Resources/Gear.png" Style="{StaticResource HelpButtonImage}"></Image>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

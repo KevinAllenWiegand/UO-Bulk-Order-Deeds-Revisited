@@ -1,0 +1,21 @@
+{
+  "name": "uo.bulkorderdeeds.webservice",
+  "version": "1.0.0",
+  "description": "Web service helper for UO Bulk Order Deeds Revisited application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Wiegand",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "child_process": "^1.0.2",
+    "express": "^4.15.3",
+	"mkdir-recursive": "^0.3.0",
+	"moment": "^2.18.1",
+	"underscore": "1.8.3",
+	"uuid": "^3.2.1",
+	"sanitize-filename": "^1.6.1"
+  }
+}

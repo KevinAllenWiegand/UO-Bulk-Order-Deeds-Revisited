@@ -1,0 +1,179 @@
+<Larges>
+	<Map>
+		<Smith>
+			<MapItem LBODName="Large Axes" XMLName="Axes" Category="Weapon,Axe"/>
+			<MapItem LBODName="Large Fencing" XMLName="Fencing" Category="Weapon,Fencing" />
+			<MapItem LBODName="Large Maces" XMLName="Maces" Category="Weapon,Mace" />
+			<MapItem LBODName="Large Polearms" XMLName="Polearms" Category="Weapon,Polearm" />
+			<MapItem LBODName="Large Swords" XMLName="Swords" Category="Weapon,Sword" />
+			<MapItem LBODName="Large Chainmail" XMLName="Chainmail" Category="Armor,Chainmail" />
+			<MapItem LBODName="Large Platemail" XMLName="Platemail" Category="Armor,Platemail" />
+			<MapItem LBODName="Large Ringmail" XMLName="Ringmail" Category="Armor,Ringmail" />
+		</Smith>
+		<Tailor>
+			<MapItem LBODName="Leather Footwear Set" XMLName="Footwear" Category="Footwear" />
+			<MapItem LBODName="Farmer Set" XMLName="Farmer" Category="Cloth" />
+			<MapItem LBODName="Girl Set" XMLName="Girl" Category="Cloth" />
+			<MapItem LBODName="Gypsy Set" XMLName="Gypsy" Category="Cloth" />
+			<MapItem LBODName="Hat Set" XMLName="Hat" Category="Hat,Cloth" />
+			<MapItem LBODName="Jester Set" XMLName="Jester" Category="Cloth" />
+			<MapItem LBODName="Lady Set" XMLName="Lady" Category="Cloth" />
+			<MapItem LBODName="Pirate Set" XMLName="Pirate" Category="Cloth" />
+			<MapItem LBODName="Wizard Set" XMLName="Wizard" Category="Cloth" />
+			<MapItem LBODName="Town Crier Set" XMLName="TownCrier" Category="Cloth" />
+			<MapItem LBODName="Bone Set" XMLName="Bone" Category="Bone Armor,Armor" />
+			<MapItem LBODName="Studded Set" XMLName="Studded" Category="Studded Leather,Armor" />
+			<MapItem LBODName="Leather Female Set" XMLName="LeatherFemale" Category="Female Leather,Armor" />
+			<MapItem LBODName="Leather Set" XMLName="Leather" Category="Leather Set,Armor" />
+		</Tailor>
+	</Map>
+	<Smith>
+		<Axes>
+			<Item>Axe</Item>
+			<Item>Battle Axe</Item>
+			<Item>Double Axe</Item>
+			<Item>Executioner's Axe</Item>
+			<Item>Large Battle Axe</Item>
+			<Item>Two Handed Axe</Item>
+		</Axes>
+		<Fencing>
+			<Item>Dagger</Item>
+			<Item>Kryss</Item>
+			<Item>Short Spear</Item>
+			<Item>Spear</Item>
+			<Item>War Fork</Item>
+		</Fencing>
+		<Maces>
+			<Item>Hammer Pick</Item>
+			<Item>Mace</Item>
+			<Item>Maul</Item>
+			<Item>War Axe</Item>
+			<Item>War Hammer</Item>
+			<Item>War Mace</Item>
+		</Maces>
+		<Polearms>
+			<Item>Bardiche</Item>
+			<Item>Halberd</Item>
+		</Polearms>
+		<Swords>
+			<Item>Cutlass</Item>
+			<Item>Broadsword</Item>
+			<Item>Katana</Item>
+			<Item>Longsword</Item>
+			<Item>Scimitar</Item>
+			<Item>Viking Sword</Item>
+		</Swords>
+		<Chainmail>
+			<Item>Chainmail Coif</Item>
+			<Item>Chainmail Leggings</Item>
+			<Item>Chainmail Tunic</Item>
+		</Chainmail>
+		<Platemail>
+			<Item>Plate Helm</Item>
+			<Item>Platemail Arms</Item>
+			<Item>Platemail Gloves</Item>
+			<Item>Platemail Gorget</Item>
+			<Item>Platemail Legs</Item>
+			<Item>Platemail Tunic</Item>
+		</Platemail>
+		<Ringmail>
+			<Item>Ringmail Gloves</Item>
+			<Item>Ringmail Leggings</Item>
+			<Item>Ringmail Sleeves</Item>
+			<Item>Ringmail Tunic</Item>
+		</Ringmail>
+	</Smith>
+	<Tailor>
+		<Farmer>
+			<Item>Straw Hat</Item>
+			<Item>Tunic</Item>
+			<Item>Long Pants</Item>
+			<Item>Boots</Item>
+		</Farmer>
+		<Girl>
+			<Item>Floppy Hat</Item>
+			<Item>Full Apron</Item>
+			<Item>Plain Dress</Item>
+			<Item>Sandals</Item>
+		</Girl>
+		<Gypsy>
+			<Item>Bandana</Item>
+			<Item>Shirt</Item>
+			<Item>Skirt</Item>
+			<Item>Thigh Boots</Item>
+		</Gypsy>
+		<Hat>
+			<Item>Tricorne Hat</Item>
+			<Item>Cap</Item>
+			<Item>Wide-Brim Hat</Item>
+			<Item>Tall Straw Hat</Item>
+		</Hat>
+		<Jester>
+			<Item>Jester Hat</Item>
+			<Item>Jester Suit</Item>
+			<Item>Cloak</Item>
+			<Item>Shoes</Item>
+		</Jester>
+		<Lady>
+			<Item>Bonnet</Item>
+			<Item>Half Apron</Item>
+			<Item>Fancy Dress</Item>
+			<Item>Sandals</Item>
+		</Lady>
+		<Pirate>
+			<Item>Skullcap</Item>
+			<Item>Doublet</Item>
+			<Item>Kilt</Item>
+			<Item>Shoes</Item>
+		</Pirate>
+		<Wizard>
+			<Item>Wizard's Hat</Item>
+			<Item>Body Sash</Item>
+			<Item>Robe</Item>
+			<Item>Boots</Item>
+		</Wizard>
+		<Footwear>
+			<Item>Sandals</Item>
+			<Item>Shoes</Item>
+			<Item>Boots</Item>
+			<Item>Thigh Boots</Item>
+		</Footwear>
+		<TownCrier>
+			<Item>Feathered Hat</Item>
+			<Item>Surcoat</Item>
+			<Item>Fancy Shirt</Item>
+			<Item>Short Pants</Item>
+			<Item>Thigh Boots</Item>
+		</TownCrier>
+		<Bone>
+			<Item>Bone Armor</Item>
+			<Item>Bone Arms</Item>
+			<Item>Bone Gloves</Item>
+			<Item>Bone Helmet</Item>
+			<Item>Bone Leggings</Item>
+		</Bone>
+		<Studded>
+			<Item>Studded Gloves</Item>
+			<Item>Studded Gorget</Item>
+			<Item>Studded Leggings</Item>
+			<Item>Studded Sleeves</Item>
+			<Item>Studded Tunic</Item>
+		</Studded>
+		<LeatherFemale>
+			<Item>Female Leather Armor</Item>
+			<Item>Leather Bustier</Item>
+			<Item>Leather Shorts</Item>
+			<Item>Leather Skirt</Item>
+			<Item>Studded Armor</Item>
+			<Item>Studded Bustier</Item>
+		</LeatherFemale>
+		<Leather>
+			<Item>Leather Cap</Item>
+			<Item>Leather Gloves</Item>
+			<Item>Leather Gorget</Item>
+			<Item>Leather Leggings</Item>
+			<Item>Leather Sleeves</Item>
+			<Item>Leather Tunic</Item>
+		</Leather>
+	</Tailor>
+</Larges>

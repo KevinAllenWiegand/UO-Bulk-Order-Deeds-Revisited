@@ -1,0 +1,70 @@
+﻿<Window x:Class="UO_Bulk_Order_Deeds.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UO_Bulk_Order_Deeds"
+        xmlns:viewModels="clr-namespace:UO_Bulk_Order_Deeds.ViewModels"
+        xmlns:views="clr-namespace:UO_Bulk_Order_Deeds.Views"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="700" Width="1000">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:ProfessionsViewModel}">
+            <views:ProfessionsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ProfessionViewModel}">
+            <views:ProfessionView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:BulkOrderDeedsForRewardViewModel}">
+            <views:BulkOrderDeedsForRewardView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CollectionViewModel}">
+            <views:CollectionView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ErrorViewModel}">
+            <views:ErrorView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:HelpViewModel}">
+            <views:HelpView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AddBulkOrderDeedToCollectionViewModel}">
+            <views:AddBulkOrderDeedToCollectionView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Command="{Binding BackCommand}" Style="{StaticResource BackButton}" Visibility="{Binding BackCommandVisibility}" HorizontalAlignment="Left" ToolTip="Go Back">
+                <Image Source="/Resources/Back.png" Style="{StaticResource BackButtonImage}"></Image>
+            </Button>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Command="{Binding HomeCommand}" Style="{StaticResource HomeButton}" Visibility="{Binding HomeCommandVisibility}" ToolTip="Home">
+                    <Image Source="/Resources/Home.png" Style="{StaticResource HomeButtonImage}"></Image>
+                </Button>
+
+                <Button Command="{Binding CollectionCommand}" Style="{StaticResource CollectionButton}" Visibility="{Binding CollectionCommandVisibility}" ToolTip="My Collection">
+                    <Image Source="/Resources/BulkOrderDeed.gif" Style="{StaticResource CollectionButtonImage}"></Image>
+                </Button>
+            </StackPanel>
+
+            <Button Grid.Column="2" Command="{Binding HelpCommand}" Style="{StaticResource HelpButton}" HorizontalAlignment="Right" ToolTip="Help">
+                <Image Source="/Resources/Help.png" Style="{StaticResource HelpButtonImage}"></Image>
+            </Button>
+        </Grid>
+
+        <Border Grid.Row="1" Margin="5" Padding="5" BorderBrush="White" BorderThickness="1" CornerRadius="3">
+            <ContentControl Content="{Binding .}"></ContentControl>
+        </Border>
+    </Grid>
+</Window>

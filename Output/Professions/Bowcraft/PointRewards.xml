@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointRewards>
+    <Reward name="High Charge Crafting Tool" points="10" icon="fletching-kit.gif" />
+    <Reward name="Reward Title - Fletcher" points="25" icon="deed.gif" />
+    <Reward name="Master Craftsman Talisman (10 charges)" points="210" icon="MCtali-bowyer.gif" />
+    <Reward name="Woodsman's Yew Talisman" points="225" icon="talisman-yew.gif" />
+    <Reward name="Lumberjack's Yew Map" points="310" icon="bodmap-yew.gif" />
+    <Reward name="Master Craftsman Talisman (25 charges)" points="325" icon="MCtali-bowyer.gif" />
+    <Reward name="Woodsman's Heartwood Talisman" points="360" icon="talisman-heartwood.gif" />
+    <Reward name="Lumberjack's Heartwood Map" points="375" icon="bodmap-heartwood.gif" />
+    <Reward name="Master Craftsman Talisman (50 charges)" points="410" icon="MCtali-bowyer.gif" />
+    <Reward name="Oak Runic Tool" points="425" icon="fletching-kit-oak.gif" />
+    <Reward name="Woodsman's Bloodwood Talisman" points="510" icon="talisman-bloodwood.gif" />
+    <Reward name="Lumberjack's Bloodwood Map" points="525" icon="bodmap-bloodwood.gif" />
+    <Reward name="Ash Runic Tool" points="650" icon="fletching-kit-ash.gif" />
+    <Reward name="Woodsman's Frostwood Talisman" points="750" icon="talisman-frostwood.gif" />
+    <Reward name="Lumberjack's Frostwood Map" points="950" icon="bodmap-frostwood.gif" />
+    <Reward name="Yew Runic Tool" points="1000" icon="fletching-kit-yew.gif" />
+    <Reward name="Heartwood Runic Tool" points="1100" icon="fletching-kit-heartwood.gif" />
+</PointRewards>

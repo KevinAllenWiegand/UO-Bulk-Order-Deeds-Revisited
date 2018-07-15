@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointTable>
+    <Small>
+        <Entry material="Wood" quantity="10" exceptional="false" points="10" />
+        <Entry material="Wood" quantity="15" exceptional="false" points="25" />
+        <Entry material="Wood" quantity="20" exceptional="false" points="50" />
+        <Entry material="Wood" quantity="10" exceptional="true" points="210" />
+        <Entry material="Wood" quantity="15" exceptional="true" points="225" />
+        <Entry material="Wood" quantity="20" exceptional="true" points="250" />
+        <Entry material="Oak" quantity="10" exceptional="false" points="310" />
+        <Entry material="Oak" quantity="15" exceptional="false" points="325" />
+        <Entry material="Oak" quantity="20" exceptional="false" points="350" />
+        <Entry material="Oak" quantity="10" exceptional="true" points="510" />
+        <Entry material="Oak" quantity="15" exceptional="true" points="525" />
+        <Entry material="Oak" quantity="20" exceptional="true" points="550" />
+        <Entry material="Ash" quantity="10" exceptional="false" points="360" />
+        <Entry material="Ash" quantity="15" exceptional="false" points="375" />
+        <Entry material="Ash" quantity="20" exceptional="false" points="400" />
+        <Entry material="Ash" quantity="10" exceptional="true" points="560" />
+        <Entry material="Ash" quantity="15" exceptional="true" points="575" />
+        <Entry material="Ash" quantity="20" exceptional="true" points="600" />
+        <Entry material="Yew" quantity="10" exceptional="false" points="410" />
+        <Entry material="Yew" quantity="15" exceptional="false" points="425" />
+        <Entry material="Yew" quantity="20" exceptional="false" points="450" />
+        <Entry material="Yew" quantity="10" exceptional="true" points="610" />
+        <Entry material="Yew" quantity="15" exceptional="true" points="625" />
+        <Entry material="Yew" quantity="20" exceptional="true" points="650" />
+        <Entry material="Heartwood" quantity="10" exceptional="false" points="460" />
+        <Entry material="Heartwood" quantity="15" exceptional="false" points="475" />
+        <Entry material="Heartwood" quantity="20" exceptional="false" points="500" />
+        <Entry material="Heartwood" quantity="10" exceptional="true" points="660" />
+        <Entry material="Heartwood" quantity="15" exceptional="true" points="675" />
+        <Entry material="Heartwood" quantity="20" exceptional="true" points="700" />
+        <Entry material="Bloodwood" quantity="10" exceptional="false" points="510" />
+        <Entry material="Bloodwood" quantity="15" exceptional="false" points="525" />
+        <Entry material="Bloodwood" quantity="20" exceptional="false" points="550" />
+        <Entry material="Bloodwood" quantity="10" exceptional="true" points="710" />
+        <Entry material="Bloodwood" quantity="15" exceptional="true" points="725" />
+        <Entry material="Bloodwood" quantity="20" exceptional="true" points="750" />
+        <Entry material="Frostwood" quantity="10" exceptional="false" points="560" />
+        <Entry material="Frostwood" quantity="15" exceptional="false" points="575" />
+        <Entry material="Frostwood" quantity="20" exceptional="false" points="600" />
+        <Entry material="Frostwood" quantity="10" exceptional="true" points="760" />
+        <Entry material="Frostwood" quantity="15" exceptional="true" points="775" />
+        <Entry material="Frostwood" quantity="20" exceptional="true" points="800" />
+    </Small>
+    <Large>
+        <Entry material="Wood" quantity="10" exceptional="false" type="Weapons" points="210" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="Weapons" points="225" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="Weapons" points="250" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="Weapons" points="410" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="Weapons" points="425" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="Weapons" points="450" />
+        <Entry material="Oak" quantity="10" exceptional="false" type="Weapons" points="510" />
+        <Entry material="Oak" quantity="15" exceptional="false" type="Weapons" points="525" />
+        <Entry material="Oak" quantity="20" exceptional="false" type="Weapons" points="550" />
+        <Entry material="Oak" quantity="10" exceptional="true" type="Weapons" points="710" />
+        <Entry material="Oak" quantity="15" exceptional="true" type="Weapons" points="725" />
+        <Entry material="Oak" quantity="20" exceptional="true" type="Weapons" points="750" />
+        <Entry material="Ash" quantity="10" exceptional="false" type="Weapons" points="560" />
+        <Entry material="Ash" quantity="15" exceptional="false" type="Weapons" points="575" />
+        <Entry material="Ash" quantity="20" exceptional="false" type="Weapons" points="600" />
+        <Entry material="Ash" quantity="10" exceptional="true" type="Weapons" points="760" />
+        <Entry material="Ash" quantity="15" exceptional="true" type="Weapons" points="775" />
+        <Entry material="Ash" quantity="20" exceptional="true" type="Weapons" points="800" />
+        <Entry material="Yew" quantity="10" exceptional="false" type="Weapons" points="610" />
+        <Entry material="Yew" quantity="15" exceptional="false" type="Weapons" points="625" />
+        <Entry material="Yew" quantity="20" exceptional="false" type="Weapons" points="650" />
+        <Entry material="Yew" quantity="10" exceptional="true" type="Weapons" points="810" />
+        <Entry material="Yew" quantity="15" exceptional="true" type="Weapons" points="825" />
+        <Entry material="Yew" quantity="20" exceptional="true" type="Weapons" points="850" />
+        <Entry material="Heartwood" quantity="10" exceptional="false" type="Weapons" points="660" />
+        <Entry material="Heartwood" quantity="15" exceptional="false" type="Weapons" points="675" />
+        <Entry material="Heartwood" quantity="20" exceptional="false" type="Weapons" points="700" />
+        <Entry material="Heartwood" quantity="10" exceptional="true" type="Weapons" points="860" />
+        <Entry material="Heartwood" quantity="15" exceptional="true" type="Weapons" points="875" />
+        <Entry material="Heartwood" quantity="20" exceptional="true" type="Weapons" points="900" />
+        <Entry material="Bloodwood" quantity="10" exceptional="false" type="Weapons" points="710" />
+        <Entry material="Bloodwood" quantity="15" exceptional="false" type="Weapons" points="725" />
+        <Entry material="Bloodwood" quantity="20" exceptional="false" type="Weapons" points="750" />
+        <Entry material="Bloodwood" quantity="10" exceptional="true" type="Weapons" points="910" />
+        <Entry material="Bloodwood" quantity="15" exceptional="true" type="Weapons" points="925" />
+        <Entry material="Bloodwood" quantity="20" exceptional="true" type="Weapons" points="950" />
+        <Entry material="Frostwood" quantity="10" exceptional="false" type="Weapons" points="760" />
+        <Entry material="Frostwood" quantity="15" exceptional="false" type="Weapons" points="775" />
+        <Entry material="Frostwood" quantity="20" exceptional="false" type="Weapons" points="800" />
+        <Entry material="Frostwood" quantity="10" exceptional="true" type="Weapons" points="960" />
+        <Entry material="Frostwood" quantity="15" exceptional="true" type="Weapons" points="975" />
+        <Entry material="Frostwood" quantity="20" exceptional="true" type="Weapons" points="1000" />
+        <Entry material="Wood" quantity="10" exceptional="false" type="Wood Furniture" points="210" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="Wood Furniture" points="225" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="Wood Furniture" points="250" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="Wood Furniture" points="410" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="Wood Furniture" points="425" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="Wood Furniture" points="450" />
+        <Entry material="Wood" quantity="10" exceptional="false" type="Cabinets" points="260" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="Cabinets" points="275" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="Cabinets" points="300" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="Cabinets" points="460" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="Cabinets" points="475" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="Cabinets" points="500" />
+        <Entry material="Wood" quantity="10" exceptional="false" type="SE Armoire" points="260" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="SE Armoire" points="275" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="SE Armoire" points="300" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="SE Armoire" points="450" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="SE Armoire" points="475" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="SE Armoire" points="500" />
+        <Entry material="Wood" quantity="10" exceptional="false" type="Instruments" points="260" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="Instruments" points="275" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="Instruments" points="300" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="Instruments" points="460" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="Instruments" points="475" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="Instruments" points="500" />
+        <Entry material="Wood" quantity="10" exceptional="false" type="Large SE Chests" points="310" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="Large SE Chests" points="325" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="Large SE Chests" points="350" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="Large SE Chests" points="510" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="Large SE Chests" points="525" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="Large SE Chests" points="550" />
+        <Entry material="Wood" quantity="10" exceptional="false" type="Elven Weapons" points="360" />
+        <Entry material="Wood" quantity="15" exceptional="false" type="Elven Weapons" points="375" />
+        <Entry material="Wood" quantity="20" exceptional="false" type="Elven Weapons" points="400" />
+        <Entry material="Wood" quantity="10" exceptional="true" type="Elven Weapons" points="560" />
+        <Entry material="Wood" quantity="15" exceptional="true" type="Elven Weapons" points="575" />
+        <Entry material="Wood" quantity="20" exceptional="true" type="Elven Weapons" points="600" />
+        <Entry material="Oak" quantity="10" exceptional="false" type="Elven Weapons" points="660" />
+        <Entry material="Oak" quantity="15" exceptional="false" type="Elven Weapons" points="675" />
+        <Entry material="Oak" quantity="20" exceptional="false" type="Elven Weapons" points="700" />
+        <Entry material="Oak" quantity="10" exceptional="true" type="Elven Weapons" points="860" />
+        <Entry material="Oak" quantity="15" exceptional="true" type="Elven Weapons" points="875" />
+        <Entry material="Oak" quantity="20" exceptional="true" type="Elven Weapons" points="900" />
+        <Entry material="Ash" quantity="10" exceptional="false" type="Elven Weapons" points="710" />
+        <Entry material="Ash" quantity="15" exceptional="false" type="Elven Weapons" points="725" />
+        <Entry material="Ash" quantity="20" exceptional="false" type="Elven Weapons" points="750" />
+        <Entry material="Ash" quantity="10" exceptional="true" type="Elven Weapons" points="910" />
+        <Entry material="Ash" quantity="15" exceptional="true" type="Elven Weapons" points="925" />
+        <Entry material="Ash" quantity="20" exceptional="true" type="Elven Weapons" points="950" />
+        <Entry material="Yew" quantity="10" exceptional="false" type="Elven Weapons" points="760" />
+        <Entry material="Yew" quantity="15" exceptional="false" type="Elven Weapons" points="775" />
+        <Entry material="Yew" quantity="20" exceptional="false" type="Elven Weapons" points="800" />
+        <Entry material="Yew" quantity="10" exceptional="true" type="Elven Weapons" points="960" />
+        <Entry material="Yew" quantity="15" exceptional="true" type="Elven Weapons" points="975" />
+        <Entry material="Yew" quantity="20" exceptional="true" type="Elven Weapons" points="1000" />
+        <Entry material="Heartwood" quantity="10" exceptional="false" type="Elven Weapons" points="810" />
+        <Entry material="Heartwood" quantity="15" exceptional="false" type="Elven Weapons" points="825" />
+        <Entry material="Heartwood" quantity="20" exceptional="false" type="Elven Weapons" points="850" />
+        <Entry material="Heartwood" quantity="10" exceptional="true" type="Elven Weapons" points="1010" />
+        <Entry material="Heartwood" quantity="15" exceptional="true" type="Elven Weapons" points="1025" />
+        <Entry material="Heartwood" quantity="20" exceptional="true" type="Elven Weapons" points="1050" />
+        <Entry material="Bloodwood" quantity="10" exceptional="false" type="Elven Weapons" points="860" />
+        <Entry material="Bloodwood" quantity="15" exceptional="false" type="Elven Weapons" points="875" />
+        <Entry material="Bloodwood" quantity="20" exceptional="false" type="Elven Weapons" points="900" />
+        <Entry material="Bloodwood" quantity="10" exceptional="true" type="Elven Weapons" points="1060" />
+        <Entry material="Bloodwood" quantity="15" exceptional="true" type="Elven Weapons" points="1075" />
+        <Entry material="Bloodwood" quantity="20" exceptional="true" type="Elven Weapons" points="1100" />
+        <Entry material="Frostwood" quantity="10" exceptional="false" type="Elven Weapons" points="910" />
+        <Entry material="Frostwood" quantity="15" exceptional="false" type="Elven Weapons" points="925" />
+        <Entry material="Frostwood" quantity="20" exceptional="false" type="Elven Weapons" points="950" />
+        <Entry material="Frostwood" quantity="10" exceptional="true" type="Elven Weapons" points="1110" />
+        <Entry material="Frostwood" quantity="15" exceptional="true" type="Elven Weapons" points="1125" />
+        <Entry material="Frostwood" quantity="20" exceptional="true" type="Elven Weapons" points="1150" />
+    </Large>
+</PointTable>

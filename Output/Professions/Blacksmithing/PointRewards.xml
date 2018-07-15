@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointRewards>
+    <Reward name="Hammer" points="10" icon="hammer-bronze.gif" />
+    <Reward name="Sturdy Shovel" points="10" icon="sturdy-shovel.gif" />
+    <Reward name="Reward Title - Weaponsmith" points="25" icon="deed.gif" />
+    <Reward name="Sturdy Pickaxe" points="25" icon="sturdy-pick.gif" />
+    <Reward name="Reward Title - Amorer" points="100" icon="deed.gif" />
+    <Reward name="Leather Mining Gloves" points="100" icon="gloves-leather.gif" />
+    <Reward name="Studded Mining Gloves" points="200" icon="gloves-studded.gif" />
+    <Reward name="Prospector&apos;s Tool" points="200" icon="pro-tool.gif" />
+    <Reward name="Gargoyle&apos;s Pickaxe" points="200" icon="garg-axe.gif" />
+    <Reward name="Smelter&apos;s Golden Talisman" points="350" icon="talisman-gold.gif" />
+    <Reward name="Master Craftsman Talisman (10 charges)" points="400" icon="MCtali-blacksmith.gif" />
+    <Reward name="Ringmail Mining Gloves" points="450" icon="gloves-ringmail.gif" />
+    <Reward name="Powder of Fortification" points="450" icon="powder.gif" />
+    <Reward name="Smelter&apos;s Agapite Talisman" points="475" icon="talisman-agapite.gif" />
+    <Reward name="Rock Hammer" points="500" icon="rock-hammer.gif" />
+    <Reward name="Dull Copper Runic Hammer" points="500" icon="hammer-dullcopper.gif" />
+    <Reward name="Smelter&apos;s Verite Talisman" points="525" icon="talisman-verite.gif" />
+    <Reward name="Shadow Iron Runic Hammer" points="550" icon="hammer-shadowiron.gif" />
+    <Reward name="Master Craftsman Talisman (25 charges)" points="550" icon="MCtali-blacksmith.gif" />
+    <Reward name="Smelter&apos;s Valorite Talisman" points="575" icon="talisman-valorite.gif" />
+    <Reward name="Colored Anvil" points="625" icon="anvil.gif" />
+    <Reward name="Wonderous Scroll (105)" points="625" icon="bod-powerscroll.gif" />
+    <Reward name="Copper Runic Hammer" points="650" icon="hammer-copper.gif" />
+    <Reward name="Exalted Scroll (110)" points="675" icon="bod-powerscroll.gif" />
+    <Reward name="Bronze Runic Hammer" points="700" icon="hammer-bronze.gif" />
+    <Reward name="Miner&apos;s Golden Map" points="700" icon="bodmap-golden.gif" />
+    <Reward name="+10 Ancient Hammer" points="750" icon="hammer-ancient.gif" />
+    <Reward name="Mythical Scroll (115)" points="800" icon="bod-powerscroll.gif" />
+    <Reward name="+15 Ancient Hammer" points="850" icon="hammer-ancient.gif" />
+    <Reward name="Legendary Scroll (120)" points="900" icon="bod-powerscroll.gif" />
+    <Reward name="Master Craftsman Talisman (50 charges)" points="900" icon="MCtali-blacksmith.gif" />
+    <Reward name="Gold Runic Hammer" points="950" icon="hammer-golden.gif" />
+    <Reward name="Miner&apos;s Agapite Map" points="950" icon="bodmap-agapite.gif" />
+    <Reward name="+30 Ancient Hammer" points="1000" icon="hammer-ancient.gif" />
+    <Reward name="Agapite Runic Hammer" points="1050" icon="hammer-agapite.gif" />
+    <Reward name="Miner&apos;s GoldeVerite Map" points="1050" icon="bodmap-verite.png" />
+    <Reward name="+60 Ancient Hammer" points="1100" icon="hammer-ancient.gif" />
+    <Reward name="Verite Runic Hammer" points="1150" icon="hammer-verite.gif" />
+    <Reward name="Miner&apos;s Valorite Map" points="1150" icon="bodmap-valorite.png" />
+    <Reward name="Valorite Runic Hammer" points="1200" icon="hammer-valorite.gif" />
+</PointRewards>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Materials>
+    <Material name="Cloth" />
+    <Material name="Normal Leather" />
+    <Material name="Spined Leather" />
+    <Material name="Horned Leather" />
+    <Material name="Barbed Leather" />
+</Materials>

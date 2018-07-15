@@ -1,0 +1,110 @@
+<BODS>
+	<Blacksmith>
+		<BOD Name="Ringmail Gloves" Ingots="10" Category="Ringmail,Armor" />
+		<BOD Name="Ringmail Leggings" Ingots="16" Category="Ringmail,Armor" />
+		<BOD Name="Ringmail Sleeves" Ingots="14" Category="Ringmail,Armor" />
+	 	<BOD Name="Ringmail Tunic" Ingots="18" Category="Ringmail,Armor" />
+	 	<BOD Name="Chainmail Coif" Ingots="10" Category="Chainmail,Armor" />
+	 	<BOD Name="Chainmail Leggings" Ingots="18" Category="Chainmail,Armor" />
+	 	<BOD Name="Chainmail Tunic" Ingots="20" Category="Chainmail,Armor" />
+	 	<BOD Name="Platemail Arms" Ingots="18" Category="Platemail,Armor" />
+	 	<BOD Name="Platemail Legs" Ingots="20" Category="Platemail,Armor" />
+	 	<BOD Name="Platemail Tunic" Ingots="25" Category="Platemail,Armor" />
+	 	<BOD Name="Platemail Gloves" Ingots="12" Category="Platemail,Armor" />
+	 	<BOD Name="Platemail Gorget" Ingots="10" Category="Platemail,Armor" />
+	 	<BOD Name="Bascinet" Ingots="15" Category="Helmet,Armor" />
+	 	<BOD Name="Close Helmet" Ingots="15" Category="Helmet,Armor" />
+	 	<BOD Name="Helmet" Ingots="15" Category="Helmet,Armor" />
+	 	<BOD Name="Norse Helm" Ingots="15" Category="Helmet,Armor" />
+	 	<BOD Name="Plate Helm" Ingots="15" Category="Helmet,Platemail,Armor" />
+	 	<BOD Name="Buckler" Ingots="10" Category="Shield,Armor" />
+	 	<BOD Name="Bronze Shield" Ingots="12" Category="Shield,Armor" />
+	 	<BOD Name="Heater Shield" Ingots="18" Category="Shield,Armor" />
+	 	<BOD Name="Metal Shield" Ingots="14" Category="Shield,Armor" />
+	 	<BOD Name="Metal Kite Shield" Ingots="16" Category="Shield,Armor" />
+	 	<BOD Name="Tear Kite Shield" Ingots="8" Category="Shield,Armor" />
+	 	<BOD Name="Platemail Tunic (Female)" Ingots="20" Category="Armor" />
+		<BOD Name="Bardiche" Ingots="18" Category="Polearm,Weapon" />
+		<BOD Name="Halberd" Ingots="20" Category="Polearm,Weapon" />
+		<BOD Name="Cutlass" Ingots="8" Category="Sword,Weapon" />
+		<BOD Name="Viking Sword" Ingots="14" Category="Sword,Weapon" />
+		<BOD Name="Longsword" Ingots="12" Category="Sword,Weapon" />
+		<BOD Name="Scimitar" Ingots="10" Category="Sword,Weapon" />
+		<BOD Name="Broadsword" Ingots="10" Category="Sword,Weapon" />
+		<BOD Name="Katana" Ingots="8" Category="Sword,Weapon" />
+		<BOD Name="Dagger" Ingots="3" Category="Fencing,Weapon" />
+		<BOD Name="Kryss" Ingots="8" Category="Fencing,Weapon" />
+		<BOD Name="Short Spear" Ingots="6" Category="Fencing,Weapon" />
+		<BOD Name="Spear" Ingots="12" Category="Fencing,Weapon" />
+		<BOD Name="War Fork" Ingots="12" Category="Fencing,Weapon" />
+		<BOD Name="Mace" Ingots="6" Category="Mace,Weapon" />
+		<BOD Name="Maul" Ingots="10" Category="Mace,Weapon" />
+		<BOD Name="War Mace" Ingots="14" Category="Mace,Weapon" />
+		<BOD Name="War Hammer" Ingots="16" Category="Mace,Weapon" />
+		<BOD Name="Hammer Pick" Ingots="16" Category="Mace,Weapon" />
+		<BOD Name="War Axe" Ingots="16" Category="Mace,Weapon" />
+		<BOD Name="Large Battle Axe" Ingots="12" Category="Axe,Weapon" />
+		<BOD Name="Double Axe" Ingots="12" Category="Axe,Weapon" />
+		<BOD Name="Battle Axe" Ingots="14" Category="Axe,Weapon" />
+		<BOD Name="Two Handed Axe" Ingots="16" Category="Axe,Weapon" />
+		<BOD Name="Axe" Ingots="14" Category="Axe,Weapon" />
+		<BOD Name="Executioner's Axe" Ingots="14" Category="Axe,Weapon" />
+	</Blacksmith>
+	<Tailor>
+		<BOD Name="Straw Hat" Cloth="10" Category="Hat,Cloth" />
+		<BOD Name="Tunic" Cloth="12" Category="Shirt,Cloth" />
+		<BOD Name="Long Pants" Cloth="8" Category="Pants,Cloth" />
+		<BOD Name="Floppy Hat" Cloth="11" Category="Hat,Cloth" />
+		<BOD Name="Full Apron" Cloth="10" Category="Other,Cloth" />
+		<BOD Name="Plain Dress" Cloth="10" Category="Shirt,Cloth" />
+		<BOD Name="Bandana" Cloth="2" Category="Hat,Cloth" />
+		<BOD Name="Shirt" Cloth="8" Category="Shirt,Cloth" />
+		<BOD Name="Skirt" Cloth="10" Category="Pants,Cloth" />
+		<BOD Name="Tricorne Hat" Cloth="12" Category="Hat,Cloth" />
+		<BOD Name="Cap" Cloth="11" Category="Hat,Cloth" />
+		<BOD Name="Wide-Brim Hat" Cloth="12" Category="Hat,Cloth" />
+		<BOD Name="Tall Straw Hat" Cloth="13" Category="Hat,Cloth" />
+		<BOD Name="Jester Hat" Cloth="15" Category="Hat,Cloth" />
+		<BOD Name="Jester Suit" Cloth="24" Category="Shirt,Cloth" />
+		<BOD Name="Cloak" Cloth="14" Category="Shirt,Cloth" />
+		<BOD Name="Bonnet" Cloth="11" Category="Hat,Cloth" />
+		<BOD Name="Half Apron" Cloth="6" Category="Other,Cloth" />
+		<BOD Name="Fancy Dress" Cloth="12" Category="Shirt,Cloth" />
+		<BOD Name="Skullcap" Cloth="2" Category="Hat,Cloth" />
+		<BOD Name="Doublet" Cloth="8" Category="Shirt,Cloth" />
+		<BOD Name="Kilt" Cloth="8" Category="Pants,Cloth" />
+		<BOD Name="Wizard's Hat" Cloth="15" Category="Hat,Cloth" />
+		<BOD Name="Body Sash" Cloth="4" Category="Other,Cloth" />
+		<BOD Name="Robe" Cloth="16" Category="Shirt,Cloth" />
+		<BOD Name="Feathered Hat" Cloth="12" Category="Hat,Cloth" />
+		<BOD Name="Surcoat" Cloth="14" Category="Shirt,Cloth" />
+		<BOD Name="Fancy Shirt" Cloth="8" Category="Shirt,Cloth" />
+		<BOD Name="Short Pants" Cloth="6" Category="Pants,Cloth" /> 
+		<BOD Name="Sandals" Leather="4" Bones="0" Category="Footwear" /> 
+		<BOD Name="Shoes" Leather="6" Bones="0" Category="Footwear" /> 
+		<BOD Name="Boots" Leather="8" Bones="0" Category="Footwear" /> 
+		<BOD Name="Thigh Boots" Leather="10" Bones="0" Category="Footwear" /> 
+		<BOD Name="Leather Gorget" Leather="4" Bones="0" Category="Leather Set,Armor" /> 
+		<BOD Name="Leather Cap" Leather="2" Bones="0" Category="Leather Set,Armor" /> 
+		<BOD Name="Leather Gloves" Leather="3" Bones="0" Category="Leather Set,Armor" /> 
+		<BOD Name="Leather Sleeves" Leather="4" Bones="0" Category="Leather Set,Armor" /> 
+		<BOD Name="Leather Tunic" Leather="12" Bones="0" Category="Leather Set,Armor" /> 
+		<BOD Name="Leather Leggings" Leather="10" Bones="0" Category="Leather Set,Armor" /> 
+		<BOD Name="Studded Gorget" Leather="6" Bones="0" Category="Studded Leather,Armor" /> 
+		<BOD Name="Studded Sleeves" Leather="10" Bones="0" Category="Studded Leather,Armor" /> 
+		<BOD Name="Studded Tunic" Leather="14" Bones="0" Category="Studded Leather,Armor" /> 
+		<BOD Name="Studded Gloves" Leather="8" Bones="0" Category="Studded Leather,Armor" /> 
+		<BOD Name="Studded Leggings" Leather="12" Bones="0" Category="Studded Leather,Armor" /> 
+		<BOD Name="Leather Shorts" Leather="8" Bones="0" Category="Female Leather,Armor" /> 
+		<BOD Name="Leather Skirt" Leather="6" Bones="0" Category="Female Leather,Armor" /> 
+		<BOD Name="Leather Bustier" Leather="6" Bones="0" Category="Female Leather,Armor" /> 
+		<BOD Name="Studded Bustier" Leather="8" Bones="0" Category="Female Leather,Armor" /> 
+		<BOD Name="Studded Armor" Leather="10" Bones="0" Category="Female Leather,Armor" /> 
+		<BOD Name="Female Leather Armor" Leather="8" Bones="0" Category="Female Leather,Armor" /> 
+		<BOD Name="Bone Arms" Leather="8" Bones="4" Category="Bone Armor,Armor" /> 
+		<BOD Name="Bone Gloves" Leather="6" Bones="2" Category="Bone Armor,Armor" /> 
+		<BOD Name="Bone Helmet" Leather="4" Bones="2" Category="Bone Armor,Armor" /> 
+		<BOD Name="Bone Armor" Leather="12" Bones="10" Category="Bone Armor,Armor" /> 
+		<BOD Name="Bone Leggings" Leather="10" Bones="6" Category="Bone Armor,Armor" />
+	</Tailor>
+</BODS>

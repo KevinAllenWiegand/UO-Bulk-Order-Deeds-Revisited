@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PointTable>
+    <Small>
+        <Entry quantity="10" exceptional="false" points="10" />
+        <Entry quantity="15" exceptional="false" points="25" />
+        <Entry quantity="20" exceptional="false" points="50" />
+    </Small>
+    <Large>
+        <Entry quantity="10" exceptional="false" type="Circle 1" points="210" />
+        <Entry quantity="15" exceptional="false" type="Circle 1" points="225" />
+        <Entry quantity="20" exceptional="false" type="Circle 1" points="250" />
+        <Entry quantity="10" exceptional="false" type="Circle 1&amp;2" points="210" />
+        <Entry quantity="15" exceptional="false" type="Circle 1&amp;2" points="225" />
+        <Entry quantity="20" exceptional="false" type="Circle 1&amp;2" points="250" />
+        <Entry quantity="10" exceptional="false" type="Necromancy 5 Part" points="260" />
+        <Entry quantity="15" exceptional="false" type="Necromancy 5 Part" points="275" />
+        <Entry quantity="20" exceptional="false" type="Necromancy 5 Part" points="300" />
+        <Entry quantity="10" exceptional="false" type="Necromancy 4 Part" points="260" />
+        <Entry quantity="15" exceptional="false" type="Necromancy 4 Part" points="275" />
+        <Entry quantity="20" exceptional="false" type="Necromancy 4 Part" points="300" />
+        <Entry quantity="10" exceptional="false" type="Circle 4" points="310" />
+        <Entry quantity="15" exceptional="false" type="Circle 4" points="325" />
+        <Entry quantity="20" exceptional="false" type="Circle 4" points="350" />
+        <Entry quantity="10" exceptional="false" type="Circle 5" points="310" />
+        <Entry quantity="15" exceptional="false" type="Circle 5" points="325" />
+        <Entry quantity="20" exceptional="false" type="Circle 5" points="350" />
+        <Entry quantity="10" exceptional="false" type="Necromancy 3 Part" points="310" />
+        <Entry quantity="15" exceptional="false" type="Necromancy 3 Part" points="325" />
+        <Entry quantity="20" exceptional="false" type="Necromancy 3 Part" points="350" />
+        <Entry quantity="10" exceptional="false" type="Circle 7" points="360" />
+        <Entry quantity="15" exceptional="false" type="Circle 7" points="375" />
+        <Entry quantity="20" exceptional="false" type="Circle 7" points="400" />
+        <Entry quantity="10" exceptional="false" type="Circle 8" points="410" />
+        <Entry quantity="15" exceptional="false" type="Circle 8" points="425" />
+        <Entry quantity="20" exceptional="false" type="Circle 8" points="450" />
+        <Entry quantity="10" exceptional="false" type="Books" points="460" />
+        <Entry quantity="15" exceptional="false" type="Books" points="475" />
+        <Entry quantity="20" exceptional="false" type="Books" points="500" />
+    </Large>
+</PointTable>

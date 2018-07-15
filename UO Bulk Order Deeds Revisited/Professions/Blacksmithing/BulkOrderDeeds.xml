@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BulkOrderDeeds>
+    <Small>
+        <BulkOrderDeed name="Ringmail Gloves" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Ringmail Leggings" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Ringmail Sleeves" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Ringmail Tunic" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Chainmail Coif" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Chainmail Leggings" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Chainmail Tunic" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Platemail Arms" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Platemail Legs" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Platemail Tunic" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Platemail Gloves" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Platemail Gorget" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Bascinet" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Close Helmet" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Helmet" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Norse Helm" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Plate Helm" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Buckler" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Bronze Shield" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Heater Shield" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Metal Shield" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Metal Kite Shield" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Tear Kite Shield" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Platemail Tunic (Female)" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Bardiche" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Halberd" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Cutlass" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Viking Sword" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Longsword" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Scimitar" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Broadsword" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Katana" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Dagger" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Kryss" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Short Spear" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Spear" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="War Fork" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Mace" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Maul" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="War Mace" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="War Hammer" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Hammer Pick" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="War Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Large Battle Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Double Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Battle Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Two Handed Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Executioner's Axe" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+    </Small>
+    <Large>
+        <BulkOrderDeed type="Large Axes">
+            <Items>
+                <Item name="Axe" />
+                <Item name="Battle Axe" />
+                <Item name="Double Axe" />
+                <Item name="Executioner's Axe" />
+                <Item name="Large Battle Axe" />
+                <Item name="Two Handed Axe" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Fencing">
+            <Items>
+                <Item name="Dagger" />
+                <Item name="Kryss" />
+                <Item name="Short Spear" />
+                <Item name="Spear" />
+                <Item name="War Fork" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Maces">
+            <Items>
+                <Item name="Hammer Pick" />
+                <Item name="Mace" />
+                <Item name="Maul" />
+                <Item name="War Axe" />
+                <Item name="War Hammer" />
+                <Item name="War Mace" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Polearms">
+            <Items>
+                <Item name="Bardiche" />
+                <Item name="Halberd" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Swords">
+            <Items>
+                <Item name="Cutlass" />
+                <Item name="Broadsword" />
+                <Item name="Katana" />
+                <Item name="Longsword" />
+                <Item name="Scimitar" />
+                <Item name="Viking Sword" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Chainmail">
+            <Items>
+                <Item name="Chainmail Coif" />
+                <Item name="Chainmail Leggings" />
+                <Item name="Chainmail Tunic" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Platemail">
+            <Items>
+                <Item name="Plate Helm" />
+                <Item name="Platemail Arms" />
+                <Item name="Platemail Gloves" />
+                <Item name="Platemail Gorget" />
+                <Item name="Platemail Legs" />
+                <Item name="Platemail Tunic" />
+            </Items>
+        </BulkOrderDeed>
+        <BulkOrderDeed type="Large Ringmail">
+            <Items>
+                <Item name="Ringmail Gloves" />
+                <Item name="Ringmail Leggings" />
+                <Item name="Ringmail Sleeves" />
+                <Item name="Ringmail Tunic" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+</BulkOrderDeeds>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BulkOrderDeeds>
+    <Small>
+        <BulkOrderDeed name="Key Ring" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Iron Key" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Globe" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Spyglass" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Butcher Knife" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Spoon" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Fork" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Plate" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Knife" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Goblet" canBeExceptional="true" canHaveMaterial="true" />
+        <BulkOrderDeed name="Star Sapphire Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Emerald Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Sapphire Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Ruby Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Citrine Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Amethyst Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Tourmaline Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Amber Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Diamond Ring" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Star Sapphire Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Emerald Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Sapphire Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Ruby Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Citrine Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Amethyst Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Tourmaline Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Amber Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Diamond Bracelet" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Star Sapphire Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Emerald Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Sapphire Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Ruby Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Citrine Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Amethyst Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Tourmaline Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Amber Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Diamond Earrings" canBeExceptional="false" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Mortar and Pestle" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Smith&apos;s Hammer" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Skillet" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Sewing Kit" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+        <BulkOrderDeed name="Fletcher&apos;s Tools" canBeExceptional="true" canHaveMaterial="false">
+            <RestrictedToMaterials>
+                <Material name="Iron" />
+            </RestrictedToMaterials>
+        </BulkOrderDeed>
+    </Small>
+    <Large>
+        <BulkOrderDeed type="Star Sapphire Jewelry">
+            <Items>
+                <Item name="Star Sapphire Ring" />
+                <Item name="Star Sapphire Bracelet" />
+                <Item name="Star Sapphire Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Emerald Jewelry">
+            <Items>
+                <Item name="Emerald Ring" />
+                <Item name="Emerald Bracelet" />
+                <Item name="Emerald Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Sapphire Jewelry">
+            <Items>
+                <Item name="Sapphire Ring" />
+                <Item name="Sapphire Bracelet" />
+                <Item name="Sapphire Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Ruby Jewelry">
+            <Items>
+                <Item name="Ruby Ring" />
+                <Item name="Ruby Bracelet" />
+                <Item name="Ruby Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Citrine Jewelry">
+            <Items>
+                <Item name="Citrine Ring" />
+                <Item name="Citrine Bracelet" />
+                <Item name="Citrine Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Amethyst Jewelry">
+            <Items>
+                <Item name="Amethyst Ring" />
+                <Item name="Amethyst Bracelet" />
+                <Item name="Amethyst Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Tourmaline Jewelry">
+            <Items>
+                <Item name="Tourmaline Ring" />
+                <Item name="Tourmaline Bracelet" />
+                <Item name="Tourmaline Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Amber Jewelry">
+            <Items>
+                <Item name="Amber Ring" />
+                <Item name="Amber Bracelet" />
+                <Item name="Amber Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Diamond Jewelry">
+            <Items>
+                <Item name="Diamond Ring" />
+                <Item name="Diamond Bracelet" />
+                <Item name="Diamond Earrings" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Keyring/Globe">
+            <Items>
+                <Item name="Key Ring" />
+                <Item name="Iron Key" />
+                <Item name="Globe" />
+                <Item name="Spyglass" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Tools">
+            <Items>
+                <Item name="Mortar and Pestle" />
+                <Item name="Smith&apos;s Hammer" />
+                <Item name="Skillet" />
+                <Item name="Sewing Kit" />
+                <Item name="Fletcher&apos;s Tools" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+    <Large>
+        <BulkOrderDeed type="Dining Set">
+            <Items>
+                <Item name="Butcher Knife" />
+                <Item name="Spoon" />
+                <Item name="Fork" />
+                <Item name="Plate" />
+                <Item name="Knife" />
+                <Item name="Goblet" />
+            </Items>
+        </BulkOrderDeed>
+    </Large>
+</BulkOrderDeeds>
