@@ -16,8 +16,6 @@ namespace UO_Bulk_Order_Deeds.ViewModels
         private readonly ProfessionRewardSearchCriteria _ProfessionRewardSearchCriteria;
         private readonly int _TargetPoints;
         private const int _PageSize = 25;
-
-        private int _TotalPages;
         private List<BulkOrderDeedPointEntry> _AllBulkOrderDeedPointEntries;
 
         public string ProfessionName => _ProfessionRewardSearchCriteria.Profession.Name;
@@ -54,8 +52,7 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             }
         }
 
-        public int TotalPages => _TotalPages;
-
+        public int TotalPages { get; private set; }
         public ICommand FirstPageCommand { get; }
         public ICommand PreviousPageCommand { get; }
         public ICommand NextPageCommand { get; }
@@ -111,14 +108,14 @@ namespace UO_Bulk_Order_Deeds.ViewModels
         {
             var newPage = _CurrentPage + 1;
 
-            return newPage <= _TotalPages;
+            return newPage <= TotalPages;
         }
 
         private void OnNextPageCommand(object parameter)
         {
             var newPage = _CurrentPage + 1;
 
-            if (newPage > _TotalPages)
+            if (newPage > TotalPages)
             {
                 return;
             }
@@ -128,12 +125,12 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
         private bool LastPageCommandEnabled()
         {
-            return CurrentPage < _TotalPages;
+            return CurrentPage < TotalPages;
         }
 
         private void OnLastPageCommand(object parameter)
         {
-            CurrentPage = _TotalPages;
+            CurrentPage = TotalPages;
         }
 
         private void GetResults()
@@ -197,7 +194,7 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             _AllBulkOrderDeedPointEntries.Clear();
             _AllBulkOrderDeedPointEntries.AddRange(bulkOrderDeedPointEntries);
 
-            _TotalPages = (int)Math.Ceiling((double)_AllBulkOrderDeedPointEntries.Count / (double)_PageSize);
+            TotalPages = (int)Math.Ceiling((double)_AllBulkOrderDeedPointEntries.Count / (double)_PageSize);
             CurrentPage = 1;
         }
 

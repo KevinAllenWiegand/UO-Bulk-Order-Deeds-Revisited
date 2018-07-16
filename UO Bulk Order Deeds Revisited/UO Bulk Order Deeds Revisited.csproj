@@ -100,6 +100,7 @@
     <Compile Include="ViewModels\BulkOrderDeedsForRewardViewModel.cs" />
     <Compile Include="ViewModels\BulkOrderDeedViewModel.cs" />
     <Compile Include="ViewModels\CollectionBulkOrderDeedItemViewModel.cs" />
+    <Compile Include="ViewModels\CollectionFilterParametersViewModel.cs" />
     <Compile Include="ViewModels\CollectionViewModel.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />

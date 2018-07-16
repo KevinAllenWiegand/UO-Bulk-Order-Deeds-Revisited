@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UO_Bulk_Order_Deeds.Views"
+             xmlns:converters="clr-namespace:UO_Bulk_Order_Deeds.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid Style="{StaticResource MainGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,17 +26,6 @@
             <Label Content="FILTER" Style="{StaticResource BoldLabel}" />
         </StackPanel>
 
-
-
-
-
-
-
-
-
-
-
-        <!-- TODO: Finish -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
             <Button Height="20" Width="20" Command="{Binding FirstPageCommand}" Margin="0,0,5,0">
                 <Image Source="/Resources/FirstPage.png" Style="{StaticResource HelpButtonImage}"></Image>
@@ -67,15 +60,35 @@
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="D"/>
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="E"/>
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="F"/>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="G"/>
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Padding="2,0,5,0" Text="{Binding Profession}" Style="{StaticResource TableText}" />
-                                <TextBlock Grid.Column="1" Padding="0,0,5,0" Text="{Binding DisplayName}" Style="{StaticResource TableText}" />
-                                <TextBlock Grid.Column="2" Padding="0,0,5,0" Text="{Binding Quantity}" Style="{StaticResource TableText}" />
-                                <TextBlock Grid.Column="3" Padding="0,0,5,0" Text="{Binding IsExceptional}" Style="{StaticResource TableText}" />
-                                <TextBlock Grid.Column="4" Padding="0,0,5,0" Text="{Binding Material}" Style="{StaticResource TableText}" />
-                                <TextBlock Grid.Column="5" Padding="0,0,5,0" Text="{Binding Vendor}" Style="{StaticResource TableText}" />
-                                <TextBlock Grid.Column="6" Padding="0,0,2,0" Text="{Binding BulkOrderDeedBook}" Style="{StaticResource TableText}" />
+
+                                <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
+                                    <TextBlock Text="{Binding DisplayName}" Style="{StaticResource TableText}" Visibility="{Binding ShowDisplayName, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <ItemsControl ItemsSource="{Binding BulkOrderDeedItems}" Style="{StaticResource TableContainer}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Grid.Column="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="B" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource TableText}" />
+                                                    <TextBlock Grid.Column="1" Text="{Binding CompletedCount}" Style="{StaticResource TableText}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+
+                                <TextBlock Grid.Column="3" Padding="0,0,5,0" Text="{Binding Quantity}" Style="{StaticResource TableText}" />
+                                <TextBlock Grid.Column="4" Padding="0,0,5,0" Text="{Binding IsExceptional}" Style="{StaticResource TableText}" />
+                                <TextBlock Grid.Column="5" Padding="0,0,5,0" Text="{Binding Material}" Style="{StaticResource TableText}" />
+                                <TextBlock Grid.Column="6" Padding="0,0,5,0" Text="{Binding Vendor}" Style="{StaticResource TableText}" />
+                                <TextBlock Grid.Column="7" Padding="0,0,2,0" Text="{Binding BulkOrderDeedBook}" Style="{StaticResource TableText}" />
                             </Grid>
                         </Border>
                     </DataTemplate>
@@ -97,15 +110,17 @@
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="D"/>
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="E"/>
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="F"/>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="G"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="0" Padding="2,0,5,0" Content="Profession" Style="{StaticResource BoldLabel}" />
                                 <Label Grid.Column="1" Padding="0,0,5,0" Content="Name" Style="{StaticResource BoldLabel}" />
-                                <Label Grid.Column="2" Padding="0,0,5,0" Content="Count" Style="{StaticResource BoldLabel}" />
-                                <Label Grid.Column="3" Padding="0,0,5,0" Content="Exceptional" Style="{StaticResource BoldLabel}" />
-                                <Label Grid.Column="4" Padding="0,0,5,0" Content="Material" Style="{StaticResource BoldLabel}" />
-                                <Label Grid.Column="5" Padding="0,0,5,0" Content="Vendor" Style="{StaticResource BoldLabel}" />
-                                <Label Grid.Column="6" Padding="0,0,2,0" Content="Book" Style="{StaticResource BoldLabel}" />
+                                <Label Grid.Column="2" Padding="0,0,5,0" Content="Competed" Style="{StaticResource BoldLabel}" />
+                                <Label Grid.Column="3" Padding="0,0,5,0" Content="Count" Style="{StaticResource BoldLabel}" />
+                                <Label Grid.Column="4" Padding="0,0,5,0" Content="Exceptional" Style="{StaticResource BoldLabel}" />
+                                <Label Grid.Column="5" Padding="0,0,5,0" Content="Material" Style="{StaticResource BoldLabel}" />
+                                <Label Grid.Column="6" Padding="0,0,5,0" Content="Vendor" Style="{StaticResource BoldLabel}" />
+                                <Label Grid.Column="7" Padding="0,0,2,0" Content="Book" Style="{StaticResource BoldLabel}" />
                             </Grid>
 
                             <ItemsPresenter/>
@@ -114,16 +129,6 @@
                 </ItemsControl.Template>
             </ItemsControl>
         </ScrollViewer>
-
-
-
-
-
-
-
-
-
-
 
         <!-- TODO -->
         <StackPanel Grid.Row="4">

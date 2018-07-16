@@ -1,4 +1,5 @@
-﻿using Npe.UO.BulkOrderDeeds.Internal;
+﻿using Npe.UO.BulkOrderDeeds.Filters;
+using Npe.UO.BulkOrderDeeds.Internal;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -170,6 +171,44 @@ namespace Npe.UO.BulkOrderDeeds
             }
         }
 
+        public IEnumerable<CollectionBulkOrderDeed> GetFilteredCollection(CollectionFilterParameters parameters)
+        {
+            var parametersCopy = parameters.Clone();
+            var retVal = new List<CollectionBulkOrderDeed>();
+
+            foreach (var bulkOrderDeed in _Collection)
+            {
+                if (!ApplyCollectionFilterImpl(parametersCopy, bulkOrderDeed)) continue;
+
+                retVal.Add(bulkOrderDeed);
+            }
+
+            return retVal.AsReadOnly();
+        }
+
+        public bool ApplyCollectionFilter(CollectionFilterParameters parameters, CollectionBulkOrderDeed bulkOrderDeed)
+        {
+            var parametersCopy = parameters.Clone();
+
+            return ApplyCollectionFilterImpl(parametersCopy, bulkOrderDeed);
+        }
+
+        private bool ApplyCollectionFilterImpl(CollectionFilterParameters parameters, CollectionBulkOrderDeed bulkOrderDeed)
+        {
+            var retVal = true;
+
+            foreach (var parameter in parameters.GetAppliedFilters())
+            {
+                if (!parameter.ApplyFilter(bulkOrderDeed))
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+
+            return retVal;
+        }
+
         public void AddVendor(Vendor vendor)
         {
             Guard.ArgumentNotNull(nameof(vendor), vendor);
@@ -228,7 +267,7 @@ namespace Npe.UO.BulkOrderDeeds
             OnBulkOrderDeedBookRemoved(bulkOrderDeedBook);
         }
 
-        public void AddToCollection(CollectionBulkOrderDeed collectionBulkOrderDeed)
+        public void AddBulkOrderDeed(CollectionBulkOrderDeed collectionBulkOrderDeed)
         {
             Guard.ArgumentNotNull(nameof(collectionBulkOrderDeed), collectionBulkOrderDeed);
 
@@ -241,7 +280,7 @@ namespace Npe.UO.BulkOrderDeeds
             OnBulkOrderDeedCollectionItemAdded(collectionBulkOrderDeed);
         }
 
-        public void RemoveFromCollection(CollectionBulkOrderDeed collectionBulkOrderDeed)
+        public void RemoveBulkOrderDeed(CollectionBulkOrderDeed collectionBulkOrderDeed)
         {
             Guard.ArgumentNotNull(nameof(collectionBulkOrderDeed), collectionBulkOrderDeed);
 

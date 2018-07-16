@@ -139,6 +139,7 @@ namespace UO_Bulk_Order_Deeds
                         _CollectionViewModel = new CollectionViewModel();
                     }
 
+                    _CollectionViewModel.RefreshIfNecessary();
                     viewModel = _CollectionViewModel;
 
                     if (_CurrentViewModel != null)

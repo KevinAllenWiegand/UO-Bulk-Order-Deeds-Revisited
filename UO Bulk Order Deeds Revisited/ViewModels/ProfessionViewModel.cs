@@ -44,7 +44,7 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
                 if (SelectedMaterial == null && bulkOrderDeedMaterials.Count() == 1)
                 {
-                    SelectedMaterial = bulkOrderDeedMaterials.First(); ;
+                    SelectedMaterial = bulkOrderDeedMaterials.First();
                 }
 
                 if (!QualityIsEnabled())
