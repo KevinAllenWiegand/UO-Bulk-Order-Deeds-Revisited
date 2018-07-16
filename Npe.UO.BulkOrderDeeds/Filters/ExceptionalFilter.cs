@@ -1,23 +1,24 @@
 ﻿namespace Npe.UO.BulkOrderDeeds.Filters
 {
-    public class BooleanFilter : IBulkOrderDeedFilter
+    public class ExceptionalFilter : IBulkOrderDeedFilter
     {
         public bool? Value { get; }
 
-        public BooleanFilter()
+        public ExceptionalFilter()
             : this(null)
         {
         }
 
-        public BooleanFilter(bool? value)
+        public ExceptionalFilter(bool? value)
         {
             Value = value;
         }
 
         public bool ApplyFilter(CollectionBulkOrderDeed bulkOrderDeed)
         {
-            // TODO
-            return true;
+            if (Value == null || !Value.HasValue) return true;
+
+            return bulkOrderDeed.Exceptional == Value.Value;
         }
     }
 }

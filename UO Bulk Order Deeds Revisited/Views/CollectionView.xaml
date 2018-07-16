@@ -21,10 +21,72 @@
         
         <Label Grid.Row="0" Style="{StaticResource HeaderLabel}" Content="My Bulk Order Deed Collection" />
 
-        <!-- TODO -->
-        <StackPanel Grid.Row="1">
-            <Label Content="FILTER" Style="{StaticResource BoldLabel}" />
-        </StackPanel>
+        <Expander Grid.Row="1" IsExpanded="False">
+            <Expander.Header>
+                <ContentControl>
+                    <Label Content="Filter" Style="{StaticResource BoldLabel}"/>
+                </ContentControl>
+            </Expander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Grid.Row="0">
+                    <Label Content="Profession" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding ProfessionFilters}" SelectedItem="{Binding SelectedProfessionFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="0">
+                    <Label Content="Bulk Order Deed Type" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding BulkOrderDeedTypeFilters}" SelectedItem="{Binding SelectedBulkOrderDeedTypeFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Grid.Row="0">
+                    <Label Content="Exceptional" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding ExceptionalFilters}" SelectedItem="{Binding SelectedExceptionalFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3" Grid.Row="0">
+                    <Label Content="Count" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding QuantityFilters}" SelectedItem="{Binding SelectedQuantityFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="0" Grid.Row="1">
+                    <Label Content="Material" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding BulkOrderDeedMaterialFilters}" SelectedItem="{Binding SelectedBulkOrderDeedMaterialFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    <Label Content="Vendor" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding VendorFilters}" SelectedItem="{Binding SelectedVendorFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Grid.Row="1">
+                    <Label Content="Bulk Order Deed Book" Style="{StaticResource BoldLabel}" />
+                    <ComboBox ItemsSource="{Binding BulkOrderDeedBookFilters}" SelectedItem="{Binding SelectedBulkOrderDeedBookFilter}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3" Grid.Row="1">
+                    <Label Content="Bulk Order Deed Name" Style="{StaticResource BoldLabel}" />
+                    <TextBox Text="{Binding BulkOrderDeedNameFilter, UpdateSourceTrigger=PropertyChanged}" Height="22" />
+                </StackPanel>
+
+                <StackPanel Grid.ColumnSpan="4" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Command="{Binding ApplyFilterCommand}" Content="Apply Filter" HorizontalAlignment="Right" Style="{StaticResource FilterButton}"/>
+                    <Button Command="{Binding ClearFilterCommand}" Content="Clear Filter" HorizontalAlignment="Right" Style="{StaticResource FilterButtonLast}"/>
+                </StackPanel>
+            </Grid>
+        </Expander>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,5">
             <Button Height="20" Width="20" Command="{Binding FirstPageCommand}" Margin="0,0,5,0">

@@ -1,23 +1,24 @@
 ﻿namespace Npe.UO.BulkOrderDeeds.Filters
 {
-    public class IntegerFilter : IBulkOrderDeedFilter
+    public class QuantityFilter : IBulkOrderDeedFilter
     {
         public int? Value { get; }
 
-        public IntegerFilter()
+        public QuantityFilter()
             : this(null)
         {
         }
 
-        public IntegerFilter(int? value)
+        public QuantityFilter(int? value)
         {
             Value = value;
         }
 
         public bool ApplyFilter(CollectionBulkOrderDeed bulkOrderDeed)
         {
-            // TODO
-            return true;
+            if (Value == null || !Value.HasValue) return true;
+
+            return bulkOrderDeed.Quantity == Value.Value;
         }
     }
 }

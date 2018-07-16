@@ -1,4 +1,6 @@
-﻿namespace Npe.UO.BulkOrderDeeds.Filters
+﻿using System;
+
+namespace Npe.UO.BulkOrderDeeds.Filters
 {
     public class ProfessionFilter : IBulkOrderDeedFilter
     {
@@ -16,8 +18,9 @@
 
         public bool ApplyFilter(CollectionBulkOrderDeed bulkOrderDeed)
         {
-            // TODO
-            return true;
+            if (Value == null) return true;
+
+            return String.Compare(Value.Name, bulkOrderDeed.Profession, true) == 0;
         }
     }
 }

@@ -5,20 +5,22 @@ namespace Npe.UO.BulkOrderDeeds.Filters
 {
     public class CollectionFilterParameters : ICloneable<CollectionFilterParameters>
     {
+        public const string NoFilter = "[No Filter]";
+
         public ProfessionFilter Profession { get; set; }
-        public StringFilter BulkOrderDeedName { get; set; }
-        public IntegerFilter Quantity { get; set; }
-        public BooleanFilter Exceptional { get; set; }
+        public BulkOrderDeedNameFilter BulkOrderDeedName { get; set; }
+        public QuantityFilter Quantity { get; set; }
+        public ExceptionalFilter Exceptional { get; set; }
         public VendorFilter Vendor { get; set; }
         public BulkOrderDeedBookFilter BulkOrderDeedBook { get; set; }
         public BulkOrderDeedTypeFilter BulkOrderDeedType { get; set; }
+        public BulkOrderDeedMaterialFilter BulkOrderDeedMaterial { get; set; }
 
         public CollectionFilterParameters()
-            : this(new ProfessionFilter(), new StringFilter(), new IntegerFilter(), new BooleanFilter(), new VendorFilter(), new BulkOrderDeedBookFilter(), new BulkOrderDeedTypeFilter())
         {
         }
 
-        private CollectionFilterParameters(ProfessionFilter profession, StringFilter bulkOrderDeedName, IntegerFilter quantity, BooleanFilter exceptional, VendorFilter vendor, BulkOrderDeedBookFilter bulkOrderDeedBook, BulkOrderDeedTypeFilter bulkOrderDeedType)
+        private CollectionFilterParameters(ProfessionFilter profession, BulkOrderDeedNameFilter bulkOrderDeedName, QuantityFilter quantity, ExceptionalFilter exceptional, VendorFilter vendor, BulkOrderDeedBookFilter bulkOrderDeedBook, BulkOrderDeedTypeFilter bulkOrderDeedType, BulkOrderDeedMaterialFilter bulkOrderDeedMaterial)
         {
             Profession = profession;
             BulkOrderDeedName = bulkOrderDeedName;
@@ -27,6 +29,7 @@ namespace Npe.UO.BulkOrderDeeds.Filters
             Vendor = vendor;
             BulkOrderDeedBook = bulkOrderDeedBook;
             BulkOrderDeedType = bulkOrderDeedType;
+            BulkOrderDeedMaterial = bulkOrderDeedMaterial;
         }
 
         public IEnumerable<IBulkOrderDeedFilter> GetAppliedFilters()
@@ -68,12 +71,17 @@ namespace Npe.UO.BulkOrderDeeds.Filters
                 retVal.Add(BulkOrderDeedType);
             }
 
+            if (BulkOrderDeedMaterial != null)
+            {
+                retVal.Add(BulkOrderDeedMaterial);
+            }
+
             return retVal;
         }
 
         public CollectionFilterParameters Clone()
         {
-            return new CollectionFilterParameters(Profession, BulkOrderDeedName, Quantity, Exceptional, Vendor, BulkOrderDeedBook, BulkOrderDeedType);
+            return new CollectionFilterParameters(Profession, BulkOrderDeedName, Quantity, Exceptional, Vendor, BulkOrderDeedBook, BulkOrderDeedType, BulkOrderDeedMaterial);
         }
     }
 }

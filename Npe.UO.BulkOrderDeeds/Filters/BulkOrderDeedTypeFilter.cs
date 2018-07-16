@@ -16,8 +16,9 @@
 
         public bool ApplyFilter(CollectionBulkOrderDeed bulkOrderDeed)
         {
-            // TODO
-            return true;
+            if (Value == null || !Value.HasValue) return true;
+
+            return bulkOrderDeed.BulkOrderDeedType == Value.Value;
         }
     }
 }
