@@ -79,6 +79,7 @@
     <Compile Include="LargeBulkOrderDeedDefinition.cs" />
     <Compile Include="LargeBulkOrderPointTableEntry.cs" />
     <Compile Include="LargeCollectionBulkOrderDeed.cs" />
+    <Compile Include="Plugins\ImportPlugin.cs" />
     <Compile Include="PointReward.cs" />
     <Compile Include="PointRewards.cs" />
     <Compile Include="PointTable.cs" />

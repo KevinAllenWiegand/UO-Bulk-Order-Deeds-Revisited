@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UO_Bulk_Order_Deeds.Views
+namespace Npe.UO.BulkOrderDeeds.SampleImportPlugin
 {
     /// <summary>
-    /// Interaction logic for CollectionView.xaml
+    /// Interaction logic for Import.xaml
     /// </summary>
-    public partial class CollectionView : UserControl
+    public partial class Import : Window
     {
-        public CollectionView()
+        public Import()
         {
             InitializeComponent();
-        }
-
-        // This is the stupidest thing ever...but for whateve reason the MenuItems are not
-        // closing when clicked.  So I'm forced to so this shit.
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.MainWindow.Focus();
         }
     }
 }

@@ -1,17 +1,20 @@
 ﻿using Npe.UO.BulkOrderDeeds.Internal;
 using System;
+using System.Collections.Generic;
 
 namespace Npe.UO.BulkOrderDeeds
 {
     public class BulkOrderDeedEventArgs : EventArgs
     {
-        public CollectionBulkOrderDeed BulkOrderDeed { get; }
+        private List<CollectionBulkOrderDeed> _BulkOrderDeeds;
 
-        public BulkOrderDeedEventArgs(CollectionBulkOrderDeed bulkOrderDeed)
+        public IEnumerable<CollectionBulkOrderDeed> BulkOrderDeeds => _BulkOrderDeeds.AsReadOnly();
+
+        public BulkOrderDeedEventArgs(IEnumerable<CollectionBulkOrderDeed> bulkOrderDeeds)
         {
-            Guard.ArgumentNotNull(nameof(bulkOrderDeed), bulkOrderDeed);
+            Guard.ArgumentCollectionNotNullOrEmpty(nameof(bulkOrderDeeds), bulkOrderDeeds);
 
-            BulkOrderDeed = bulkOrderDeed;
+            _BulkOrderDeeds = new List<CollectionBulkOrderDeed>(bulkOrderDeeds);
         }
     }
 }

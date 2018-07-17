@@ -1,9 +1,11 @@
 ﻿using Npe.UO.BulkOrderDeeds.Filters;
 using Npe.UO.BulkOrderDeeds.Internal;
+using Npe.UO.BulkOrderDeeds.Plugins;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Xml;
@@ -47,6 +49,7 @@ namespace Npe.UO.BulkOrderDeeds
             _Collection = new List<CollectionBulkOrderDeed>();
             _Vendors = new List<Vendor>();
             _BulkOrderDeedBooks = new List<BulkOrderDeedBook>();
+            _ImportPlugins = new List<ImportPlugin>();
 
             _CollectionFullPath = _RootSaveLocation + _CollectionFilename;
             _VendorsFullPath = _RootSaveLocation + _VendorsFilename;
@@ -55,6 +58,8 @@ namespace Npe.UO.BulkOrderDeeds
             _XmlWriterSettings = new XmlWriterSettings();
             _XmlWriterSettings.Indent = true;
             _XmlWriterSettings.IndentChars = "    ";
+
+            LoadPlugins();
     }
 
         #endregion
@@ -71,6 +76,9 @@ namespace Npe.UO.BulkOrderDeeds
         private readonly string _BulkOrderDeedBooksFilename = "BulkOrderDeedBooks.xml";
 
         private readonly string _RootSaveLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NinjaPuffer Enterprises\\UO Bulk Order Deeds Revisited\\");
+        private readonly string _ImportPluginsLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NinjaPuffer Enterprises\\UO Bulk Order Deeds Revisited\\Plugins\\Import");
+        private readonly object _ImportPluginsSync = new object();
+        private readonly List<ImportPlugin> _ImportPlugins;
         private readonly object _ProfessionsSync = new object();
         private readonly List<Profession> _Professions;
         private readonly object _CollectionSync = new object();
@@ -89,14 +97,29 @@ namespace Npe.UO.BulkOrderDeeds
 
         public static readonly int[] PossibleQuantities = { 10, 15, 20 };
 
-        public event EventHandler<BulkOrderDeedEventArgs> BulkOrderDeedCollectionItemAdded;
-        public event EventHandler<BulkOrderDeedEventArgs> BulkOrderDeedCollectionItemRemoved;
+        public event EventHandler<BulkOrderDeedEventArgs> BulkOrderDeedCollectionItemsAdded;
+        public event EventHandler<BulkOrderDeedEventArgs> BulkOrderDeedCollectionItemsRemoved;
         public event EventHandler<VendorEventArgs> VendorAdded;
         public event EventHandler<VendorEventArgs> VendorRemoved;
         public event EventHandler<BulkOrderDeedBookEventArgs> BulkOrderDeedBookAdded;
         public event EventHandler<BulkOrderDeedBookEventArgs> BulkOrderDeedBookRemoved;
 
         public IEnumerable<Profession> Professions => _Professions.AsReadOnly();
+
+        public IEnumerable<ImportPlugin> ImportPlugins
+        {
+            get
+            {
+                var retVal = new List<ImportPlugin>();
+
+                lock (_ImportPluginsSync)
+                {
+                    retVal.AddRange(_ImportPlugins);
+                }
+
+                return retVal;
+            }
+        }
 
         public IEnumerable<CollectionBulkOrderDeed> Collection
         {
@@ -235,6 +258,16 @@ namespace Npe.UO.BulkOrderDeeds
             lock (_VendorsSync)
             {
                 _Vendors.Remove(vendor);
+
+                foreach (var collectionBulkOrderDeed in _Collection)
+                {
+                    if (collectionBulkOrderDeed.Location.Vendor.Id == vendor.Id)
+                    {
+                        collectionBulkOrderDeed.Location.Vendor = Vendor.None;
+                        collectionBulkOrderDeed.Location.BulkOrderDeedBook = BulkOrderDeedBook.None;
+                    }
+                }
+
                 SaveVendors();
             }
 
@@ -261,36 +294,49 @@ namespace Npe.UO.BulkOrderDeeds
             lock (_BulkOrderDeedBooksSync)
             {
                 _BulkOrderDeedBooks.Remove(bulkOrderDeedBook);
+
+                foreach (var collectionBulkOrderDeed in _Collection)
+                {
+                    if (collectionBulkOrderDeed.Location.BulkOrderDeedBook.Id == bulkOrderDeedBook.Id)
+                    {
+                        collectionBulkOrderDeed.Location.BulkOrderDeedBook = BulkOrderDeedBook.None;
+                    }
+                }
+
                 SaveBulkOrderDeedBooks();
             }
 
             OnBulkOrderDeedBookRemoved(bulkOrderDeedBook);
         }
 
-        public void AddBulkOrderDeed(CollectionBulkOrderDeed collectionBulkOrderDeed)
+        public void AddBulkOrderDeeds(IEnumerable<CollectionBulkOrderDeed> collectionBulkOrderDeeds)
         {
-            Guard.ArgumentNotNull(nameof(collectionBulkOrderDeed), collectionBulkOrderDeed);
+            Guard.ArgumentCollectionNotNullOrEmpty(nameof(collectionBulkOrderDeeds), collectionBulkOrderDeeds);
 
             lock (_CollectionSync)
             {
-                _Collection.Add(collectionBulkOrderDeed);
+                _Collection.AddRange(collectionBulkOrderDeeds);
                 SaveCollection();
             }
 
-            OnBulkOrderDeedCollectionItemAdded(collectionBulkOrderDeed);
+            OnBulkOrderDeedCollectionItemsAdded(collectionBulkOrderDeeds);
         }
 
-        public void RemoveBulkOrderDeed(CollectionBulkOrderDeed collectionBulkOrderDeed)
+        public void RemoveBulkOrderDeeds(IEnumerable<CollectionBulkOrderDeed> collectionBulkOrderDeeds)
         {
-            Guard.ArgumentNotNull(nameof(collectionBulkOrderDeed), collectionBulkOrderDeed);
+            Guard.ArgumentCollectionNotNullOrEmpty(nameof(collectionBulkOrderDeeds), collectionBulkOrderDeeds);
 
             lock (_CollectionSync)
             {
-                _Collection.Remove(collectionBulkOrderDeed);
+                foreach (var collectionBulkOrderDeed in collectionBulkOrderDeeds)
+                {
+                    _Collection.Remove(collectionBulkOrderDeed);
+                }
+
                 SaveCollection();
             }
 
-            OnBulkOrderDeedCollectionItemRemoved(collectionBulkOrderDeed);
+            OnBulkOrderDeedCollectionItemsRemoved(collectionBulkOrderDeeds);
         }
 
         private void OnVendorBulkOrderDeedBookAdded(object sender, BulkOrderDeedBookEventArgs e)
@@ -303,18 +349,18 @@ namespace Npe.UO.BulkOrderDeeds
             SaveVendors();
         }
 
-        private void OnBulkOrderDeedCollectionItemAdded(CollectionBulkOrderDeed collectionBulkOrderDeed)
+        private void OnBulkOrderDeedCollectionItemsAdded(IEnumerable<CollectionBulkOrderDeed> collectionBulkOrderDeeds)
         {
-            var handler = BulkOrderDeedCollectionItemAdded;
+            var handler = BulkOrderDeedCollectionItemsAdded;
 
-            handler?.Invoke(this, new BulkOrderDeedEventArgs(collectionBulkOrderDeed));
+            handler?.Invoke(this, new BulkOrderDeedEventArgs(collectionBulkOrderDeeds));
         }
 
-        private void OnBulkOrderDeedCollectionItemRemoved(CollectionBulkOrderDeed collectionBulkOrderDeed)
+        private void OnBulkOrderDeedCollectionItemsRemoved(IEnumerable<CollectionBulkOrderDeed> collectionBulkOrderDeeds)
         {
-            var handler = BulkOrderDeedCollectionItemRemoved;
+            var handler = BulkOrderDeedCollectionItemsRemoved;
 
-            handler?.Invoke(this, new BulkOrderDeedEventArgs(collectionBulkOrderDeed));
+            handler?.Invoke(this, new BulkOrderDeedEventArgs(collectionBulkOrderDeeds));
         }
 
         private void OnBulkOrderDeedBookAdded(BulkOrderDeedBook bulkOrderDeedBook)
@@ -491,6 +537,32 @@ namespace Npe.UO.BulkOrderDeeds
             if (!Directory.Exists(_RootSaveLocation))
             {
                 Directory.CreateDirectory(_RootSaveLocation);
+            }
+        }
+
+        private void LoadPlugins()
+        {
+            if (!Directory.Exists(_ImportPluginsLocation)) return;
+
+            var files = Directory.GetFiles(_ImportPluginsLocation, "*.dll");
+
+            foreach (var file in files)
+            {
+                try
+                {
+                    var pluginAssembly = Assembly.LoadFrom(file);
+                    var pluginTypes = pluginAssembly.GetTypes().Where(t => t.BaseType == typeof(ImportPlugin));
+
+                    foreach (var pluginType in pluginTypes)
+                    {
+                        var instance = (ImportPlugin)Activator.CreateInstance(pluginType);
+
+                        _ImportPlugins.Add(instance);
+                    }
+                }
+                catch
+                {
+                }
             }
         }
 

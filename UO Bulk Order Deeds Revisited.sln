@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertOldBulkOrderDeedData
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{060C20C7-C285-4B5E-B4DD-365CC8136D46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Npe.UO.BulkOrderDeeds.SampleImportPlugin", "Npe.UO.BulkOrderDeeds.SampleImportPlugin\Npe.UO.BulkOrderDeeds.SampleImportPlugin.csproj", "{D58D1475-4190-47AC-8C7E-F709A30018E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{060C20C7-C285-4B5E-B4DD-365CC8136D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D58D1475-4190-47AC-8C7E-F709A30018E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D58D1475-4190-47AC-8C7E-F709A30018E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D58D1475-4190-47AC-8C7E-F709A30018E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D58D1475-4190-47AC-8C7E-F709A30018E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

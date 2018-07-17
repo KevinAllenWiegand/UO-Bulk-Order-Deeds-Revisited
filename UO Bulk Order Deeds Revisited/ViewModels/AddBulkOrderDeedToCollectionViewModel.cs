@@ -247,7 +247,7 @@ namespace UO_Bulk_Order_Deeds.ViewModels
                 }
             }
 
-            BulkOrderDeedManager.Instance.AddBulkOrderDeed(_CollectionBulkOrderDeed);
+            BulkOrderDeedManager.Instance.AddBulkOrderDeeds(new[] { _CollectionBulkOrderDeed });
             NavigationController.Instance.Navigate(NavigateTypes.Back);
         }
 

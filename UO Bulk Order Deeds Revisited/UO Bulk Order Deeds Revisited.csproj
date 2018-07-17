@@ -107,6 +107,7 @@
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\ExceptionalFilterViewModel.cs" />
     <Compile Include="ViewModels\HelpViewModel.cs" />
+    <Compile Include="ViewModels\ImportPluginViewModel.cs" />
     <Compile Include="ViewModels\ProfessionFilterViewModel.cs" />
     <Compile Include="ViewModels\ProfessionsViewModel.cs" />
     <Compile Include="ViewModels\ProfessionButtonViewModel.cs" />

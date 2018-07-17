@@ -238,6 +238,17 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             }
         }
 
+        public ObservableCollection<ImportPluginViewModel> _ImportPlugins;
+        public ObservableCollection<ImportPluginViewModel> ImportPlugins
+        {
+            get { return _ImportPlugins; }
+            set
+            {
+                _ImportPlugins = value;
+                NotifyPropertyChanged(nameof(ImportPlugins));
+            }
+        }
+
         public ICommand FirstPageCommand { get; }
         public ICommand PreviousPageCommand { get; }
         public ICommand NextPageCommand { get; }
@@ -271,12 +282,24 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             _BulkOrderDeeds = new ObservableCollection<BulkOrderDeedViewModel>();
             RefreshIfNecessary();
 
-            BulkOrderDeedManager.Instance.BulkOrderDeedCollectionItemAdded += BulkOrderDeedCollectionItemAdded;
-            BulkOrderDeedManager.Instance.BulkOrderDeedCollectionItemRemoved += BulkOrderDeedCollectionItemRemoved;
+            BulkOrderDeedManager.Instance.BulkOrderDeedCollectionItemsAdded += BulkOrderDeedCollectionItemsAdded;
+            BulkOrderDeedManager.Instance.BulkOrderDeedCollectionItemsRemoved += BulkOrderDeedCollectionItemsRemoved;
             BulkOrderDeedManager.Instance.VendorAdded += VendorAdded;
             BulkOrderDeedManager.Instance.VendorRemoved += VendorRemoved;
             BulkOrderDeedManager.Instance.BulkOrderDeedBookAdded += BulkOrderDeedBookAdded;
             BulkOrderDeedManager.Instance.BulkOrderDeedBookRemoved += BulkOrderDeedBookRemoved;
+
+            var importPlugins = new List<ImportPluginViewModel>();
+
+            foreach (var importPlugin in BulkOrderDeedManager.Instance.ImportPlugins)
+            {
+                var importPluginViewModel = new ImportPluginViewModel(importPlugin);
+
+                importPluginViewModel.ImportCompleted += ImportCompleted; 
+                importPlugins.Add(importPluginViewModel);
+            }
+
+            _ImportPlugins = new ObservableCollection<ImportPluginViewModel>(importPlugins);
         }
 
         private void SetupFilters()
@@ -434,7 +457,7 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             BulkOrderDeedBookFilters.Add(BulkOrderDeedBookFilterViewModel.None);
             BulkOrderDeedBookFilters.Add(BulkOrderDeedBookFilterViewModel.NoBook);
 
-            var bulkOrderDeedBookCollection = ((_SelectedVendorFilter == VendorFilterViewModel.None) || (_SelectedVendorFilter == VendorFilterViewModel.NoVendor))
+            var bulkOrderDeedBookCollection = ((_SelectedVendorFilter == null) || (_SelectedVendorFilter == VendorFilterViewModel.None) || (_SelectedVendorFilter == VendorFilterViewModel.NoVendor))
                 ? BulkOrderDeedManager.Instance.BulkOrderDeedBooks
                 : _SelectedVendorFilter.Value.BulkOrderDeedBooks;
 
@@ -525,6 +548,12 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             RefreshIfNecessary();
         }
 
+        private void ImportCompleted(object sender, EventArgs e)
+        {
+            _NeedsRefresh = true;
+            RefreshIfNecessary();
+        }
+
         private void OnClearFilterCommand(object parameter)
         {
             SelectedProfessionFilter = ProfessionFilterViewModel.None;
@@ -540,12 +569,12 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             RefreshIfNecessary();
         }
 
-        private void BulkOrderDeedCollectionItemAdded(object sender, BulkOrderDeedEventArgs e)
+        private void BulkOrderDeedCollectionItemsAdded(object sender, BulkOrderDeedEventArgs e)
         {
             _NeedsRefresh = true;
         }
 
-        private void BulkOrderDeedCollectionItemRemoved(object sender, BulkOrderDeedEventArgs e)
+        private void BulkOrderDeedCollectionItemsRemoved(object sender, BulkOrderDeedEventArgs e)
         {
             _NeedsRefresh = true;
         }
