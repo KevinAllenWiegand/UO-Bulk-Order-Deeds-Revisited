@@ -39,6 +39,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_85AAFA1FE6E2BADAB840E18892297396"
+        "OwnerKey" = "8:_8658DDD78B364FD6A6D2027D3665D28A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8658DDD78B364FD6A6D2027D3665D28A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8DC91322A84C4F5AB78E52D3FFC8C257"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -57,8 +69,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_CB271847706BD12478E3834749AFC33B"
+        "OwnerKey" = "8:_8658DDD78B364FD6A6D2027D3665D28A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CBC0D1B3216CE889EA33F8CE2E69C3FF"
         "OwnerKey" = "8:_8DC91322A84C4F5AB78E52D3FFC8C257"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CBC0D1B3216CE889EA33F8CE2E69C3FF"
+        "OwnerKey" = "8:_8658DDD78B364FD6A6D2027D3665D28A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -101,6 +125,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0C3BF5C4CE664CB8A5013E9FCBBB6F3A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8658DDD78B364FD6A6D2027D3665D28A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_85AAFA1FE6E2BADAB840E18892297396"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -297,6 +333,37 @@
                     }
                 }
             "SourcePath" = "8:Xceed.Wpf.Toolkit.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_369DA648EA194E55AF207B2D63710128"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_85AAFA1FE6E2BADAB840E18892297396"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_85AAFA1FE6E2BADAB840E18892297396"
+                    {
+                    "Name" = "8:System.Windows.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Windows.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_369DA648EA194E55AF207B2D63710128"
@@ -516,6 +583,28 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A796CC588F304FA893F4F2F971D44761"
+                    {
+                    "Name" = "8:Plugins"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_1733E38731E9486C94459B7956725649"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_4E5D299450C641959948EF60A76A609D"
+                            {
+                            "Name" = "8:Import"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_C664D28F99354705A8DF62EDD3C51ABF"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_8FFA1187621443F6A6C3619304551392"
@@ -568,7 +657,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:UO Bulk Order Deeds Revisited"
         "ProductCode" = "8:{8EB2E45B-DDD2-4792-8BBE-3B36CF557F53}"
-        "PackageCode" = "8:{1C478772-33DA-4A76-88CB-664B437C2646}"
+        "PackageCode" = "8:{C1C01152-5970-490F-9099-B8F4A2141D21}"
         "UpgradeCode" = "8:{7061329B-F45B-4E4F-B5E8-E7BCC7384820}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1180,6 +1269,34 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:LocalizedResourceDlls"
             "OutputProjectGuid" = "8:{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8658DDD78B364FD6A6D2027D3665D28A"
+            {
+            "SourcePath" = "8:..\\Npe.UO.BulkOrderDeeds.BuiltInImportPlugins\\obj\\Debug\\Npe.UO.BulkOrderDeeds.BuiltInImportPlugins.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4E5D299450C641959948EF60A76A609D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{72E993D5-F3D1-45F9-97A0-56DA8D59F4C4}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
