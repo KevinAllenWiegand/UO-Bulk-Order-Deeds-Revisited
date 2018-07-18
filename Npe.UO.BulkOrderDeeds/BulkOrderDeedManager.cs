@@ -12,11 +12,11 @@ using System.Xml;
 
 namespace Npe.UO.BulkOrderDeeds
 {
-    public class BulkOrderDeedManager
+    public class BulkOrderDeedManager : IDisposable
     {
         #region Singleton
 
-        private static object _SingletonLock = new object();
+        private static readonly object _SingletonLock = new object();
         private static volatile BulkOrderDeedManager _Instance;
 
         public static BulkOrderDeedManager Instance
@@ -55,9 +55,11 @@ namespace Npe.UO.BulkOrderDeeds
             _VendorsFullPath = _RootSaveLocation + _VendorsFilename;
             _BulkOrderDeedBooksFullPath = _RootSaveLocation + _BulkOrderDeedBooksFilename;
 
-            _XmlWriterSettings = new XmlWriterSettings();
-            _XmlWriterSettings.Indent = true;
-            _XmlWriterSettings.IndentChars = "    ";
+            _XmlWriterSettings = new XmlWriterSettings
+            {
+                Indent = true,
+                IndentChars = "    "
+            };
 
             LoadBuiltInPlugins();
             LoadPlugins();
@@ -90,9 +92,9 @@ namespace Npe.UO.BulkOrderDeeds
         private readonly object _BulkOrderDeedBooksSync = new object();
         private readonly List<BulkOrderDeedBook> _BulkOrderDeedBooks;
 
-        private string _CollectionFullPath;
-        private string _VendorsFullPath;
-        private string _BulkOrderDeedBooksFullPath;
+        private readonly string _CollectionFullPath;
+        private readonly string _VendorsFullPath;
+        private readonly string _BulkOrderDeedBooksFullPath;
         private Timer _SaveCollectionTimer;
         private Timer _SaveVendorsTimer;
         private Timer _SaveBulkOrderDeedBooksTimer;
@@ -598,6 +600,34 @@ namespace Npe.UO.BulkOrderDeeds
             }
 
             return retVal;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private bool _Disposed;
+
+        private void Dispose(bool disposing)
+        {
+            if (_Disposed) return;
+
+            if (disposing)
+            {
+                try
+                {
+                    _SaveBulkOrderDeedBooksTimer?.Dispose();
+                    _SaveCollectionTimer?.Dispose();
+                    _SaveVendorsTimer?.Dispose();
+                }
+                catch
+                {
+                }
+            }
+
+            _Disposed = true;
         }
     }
 }
