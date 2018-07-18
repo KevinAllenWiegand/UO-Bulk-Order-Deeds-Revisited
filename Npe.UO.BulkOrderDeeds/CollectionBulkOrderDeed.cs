@@ -31,9 +31,6 @@ namespace Npe.UO.BulkOrderDeeds
         public BulkOrderDeedLocation Location { get; }
         public abstract BulkOrderDeedType BulkOrderDeedType { get; }
 
-        private readonly List<CollectionBulkOrderDeedItem> _CollectionBulkOrderDeedItems;
-        public IReadOnlyCollection<CollectionBulkOrderDeedItem> CollectionBulkOrderDeedItems => _CollectionBulkOrderDeedItems.AsReadOnly();
-
         protected CollectionBulkOrderDeed(Profession profession, BulkOrderDeedDefinition bulkOrderDeedDefinition, int quantity, bool exceptional, BulkOrderDeedMaterial material, Vendor vendor, BulkOrderDeedBook bulkOrderDeedBook)
         {
             Guard.ArgumentNotNull(nameof(profession), profession);
@@ -47,31 +44,15 @@ namespace Npe.UO.BulkOrderDeeds
             Quantity = quantity;
             Material = material != null ? material.Name : String.Empty;
             Exceptional = exceptional;
-            _CollectionBulkOrderDeedItems = new List<CollectionBulkOrderDeedItem>();
-
-            if (BulkOrderDeedDefinition is SmallBulkOrderDeedDefinition smallBulkOrderDeedDefinition)
-            {
-                _CollectionBulkOrderDeedItems.Add(new CollectionBulkOrderDeedItem(smallBulkOrderDeedDefinition.Name, Quantity));
-            }
-
-            if (BulkOrderDeedDefinition is LargeBulkOrderDeedDefinition largeBulkOrderDeedDefinition)
-            {
-                foreach (var smallBulkOrderDeed in largeBulkOrderDeedDefinition.SmallBulkOrderDeedDefinitions)
-                {
-                    _CollectionBulkOrderDeedItems.Add(new CollectionBulkOrderDeedItem(smallBulkOrderDeed.Name, Quantity));
-                }
-            }
-
             Location = new BulkOrderDeedLocation(vendor, bulkOrderDeedBook);
         }
 
-        protected CollectionBulkOrderDeed(Guid id, string profession, string bulkOrderDeedNameMatch, BulkOrderDeedType bulkOrderDeedType, int quantity, bool exceptional, string material, Guid vendor, Guid bulkOrderDeedBook, IEnumerable<CollectionBulkOrderDeedItem> bulkOrderDeedItems)
+        protected CollectionBulkOrderDeed(Guid id, string profession, string bulkOrderDeedNameMatch, BulkOrderDeedType bulkOrderDeedType, int quantity, bool exceptional, string material, Guid vendor, Guid bulkOrderDeedBook)
         {
             Guard.ArgumentNotEmpty(nameof(id), id);
             Guard.ArgumentNotNullOrEmpty(nameof(profession), profession);
             Guard.ArgumentNotNullOrEmpty(nameof(bulkOrderDeedNameMatch), bulkOrderDeedNameMatch);
             Guard.ArgumentNotOfValue(nameof(quantity), quantity, BulkOrderDeedManager.PossibleQuantities);
-            Guard.ArgumentNotNull(nameof(bulkOrderDeedItems), bulkOrderDeedItems);
             // Note that material CAN be null (for instance, for inscription bulk order deeds).
 
             Id = id;
@@ -80,22 +61,10 @@ namespace Npe.UO.BulkOrderDeeds
             Quantity = quantity;
             Material = material ?? String.Empty;
             Exceptional = exceptional;
-            _CollectionBulkOrderDeedItems = new List<CollectionBulkOrderDeedItem>(bulkOrderDeedItems);
             Location = new BulkOrderDeedLocation(Vendor.None, BulkOrderDeedBook.None);
         }
 
-        protected void SetCompletedCounts(IDictionary<SmallBulkOrderDeedDefinition, int> completedCounts)
-        {
-            foreach (var keyValuePair in completedCounts)
-            {
-                var item = _CollectionBulkOrderDeedItems.FirstOrDefault(i => String.Compare(i.Name, keyValuePair.Key.Name, true) == 0);
-
-                if (item != null)
-                {
-                    item.CompletedCount = keyValuePair.Value;
-                }
-            }
-        }
+        protected abstract void SaveToXmlImpl(XmlWriter writer);
 
         internal void SaveToXml(XmlWriter writer)
         {
@@ -109,14 +78,9 @@ namespace Npe.UO.BulkOrderDeeds
             writer.WriteAttributeString(_MaterialAttributeName, Material);
             writer.WriteAttributeString(_VendorAttributeName, Location.Vendor.Id.ToString());
             writer.WriteAttributeString(_BulkOrderDeedBookAttributeName, Location.BulkOrderDeedBook.Id.ToString());
-            writer.WriteStartElement(CollectionBulkOrderDeedItem.XmlRootName);
 
-            foreach (var bulkOrderDeedItem in _CollectionBulkOrderDeedItems)
-            {
-                bulkOrderDeedItem.SaveToXml(writer);
-            }
+            SaveToXmlImpl(writer);
 
-            writer.WriteEndElement();
             writer.WriteEndElement();
         }
 
@@ -147,17 +111,16 @@ namespace Npe.UO.BulkOrderDeeds
                             var bulkOrderDeedType = (BulkOrderDeedType)Enum.Parse(typeof(BulkOrderDeedType), bulkOrderDeedTypeString);
                             var quantity = int.Parse(quantityString);
                             var exceptional = bool.Parse(exceptionalString);
-                            var bulkOrderDeedItems = CollectionBulkOrderDeedItem.LoadFromXml(node, quantity);
                             var vendor = Guid.Parse(vendorString);
                             var bulkOrderDeedBook = Guid.Parse(bulkOrderDeedBookString);
 
                             if (bulkOrderDeedType == BulkOrderDeedType.Small)
                             {
-                                retVal.Add(new SmallCollectionBulkOrderDeed(id, profession, name, quantity, exceptional, material, vendor, bulkOrderDeedBook, bulkOrderDeedItems));
+                                retVal.Add(SmallCollectionBulkOrderDeed.LoadFromXml(node, id, profession, name, quantity, exceptional, material, vendor, bulkOrderDeedBook));
                             }
-                            else if (bulkOrderDeedType == BulkOrderDeedType.Large)
+                            else
                             {
-                                retVal.Add(new LargeCollectionBulkOrderDeed(id, profession, name, quantity, exceptional, material, vendor, bulkOrderDeedBook, bulkOrderDeedItems));
+                                retVal.Add(LargeCollectionBulkOrderDeed.LoadFromXml(node, id, profession, name, quantity, exceptional, material, vendor, bulkOrderDeedBook));
                             }
                         }
                     }

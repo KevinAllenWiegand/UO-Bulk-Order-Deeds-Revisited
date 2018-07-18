@@ -9,19 +9,21 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
         public string Name => _CollectionBulkOrderDeedItem.Name;
 
-        public int CompletedCount
+        public bool IsCompleted
         {
-            get { return _CollectionBulkOrderDeedItem.CompletedCount; }
+            get { return _CollectionBulkOrderDeedItem.IsCompleted; }
             set
             {
-                if (_CollectionBulkOrderDeedItem.CompletedCount == value) return;
+                if (_CollectionBulkOrderDeedItem.IsCompleted == value) return;
 
-                _CollectionBulkOrderDeedItem.CompletedCount = value;
+                _CollectionBulkOrderDeedItem.IsCompleted = value;
+                NotifyPropertyChanged(nameof(IsCompleted));
                 NotifyPropertyChanged(nameof(CompletedCount));
             }
         }
 
         public int Quantity => _CollectionBulkOrderDeedItem.Quantity;
+        public int CompletedCount => IsCompleted ? Quantity : 0;
 
         public CollectionBulkOrderDeedItemViewModel(CollectionBulkOrderDeedItem collectionBulkOrderDeedItem)
         {

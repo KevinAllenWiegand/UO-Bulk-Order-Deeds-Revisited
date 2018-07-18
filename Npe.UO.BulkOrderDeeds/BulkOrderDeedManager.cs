@@ -59,6 +59,7 @@ namespace Npe.UO.BulkOrderDeeds
             _XmlWriterSettings.Indent = true;
             _XmlWriterSettings.IndentChars = "    ";
 
+            LoadBuiltInPlugins();
             LoadPlugins();
     }
 
@@ -77,6 +78,7 @@ namespace Npe.UO.BulkOrderDeeds
 
         private readonly string _RootSaveLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NinjaPuffer Enterprises\\UO Bulk Order Deeds Revisited\\");
         private readonly string _ImportPluginsLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NinjaPuffer Enterprises\\UO Bulk Order Deeds Revisited\\Plugins\\Import");
+        private readonly string _BuiltInImportPluginsLocation = Path.Combine(Internals.GetRootLocation(), "Plugins\\Import");
         private readonly object _ImportPluginsSync = new object();
         private readonly List<ImportPlugin> _ImportPlugins;
         private readonly object _ProfessionsSync = new object();
@@ -540,11 +542,21 @@ namespace Npe.UO.BulkOrderDeeds
             }
         }
 
+        private void LoadBuiltInPlugins()
+        {
+            LoadPluginsImpl(_BuiltInImportPluginsLocation, true);
+        }
+
         private void LoadPlugins()
         {
-            if (!Directory.Exists(_ImportPluginsLocation)) return;
+            LoadPluginsImpl(_ImportPluginsLocation, false);
+        }
 
-            var files = Directory.GetFiles(_ImportPluginsLocation, "*.dll");
+        private void LoadPluginsImpl(string location, bool mustBeTrusted)
+        {
+            if (!Directory.Exists(location)) return;
+
+            var files = Directory.GetFiles(location, "*.dll");
 
             foreach (var file in files)
             {
@@ -556,6 +568,8 @@ namespace Npe.UO.BulkOrderDeeds
                     foreach (var pluginType in pluginTypes)
                     {
                         var instance = (ImportPlugin)Activator.CreateInstance(pluginType);
+
+                        if (mustBeTrusted && !instance.Trusted) continue;
 
                         _ImportPlugins.Add(instance);
                     }

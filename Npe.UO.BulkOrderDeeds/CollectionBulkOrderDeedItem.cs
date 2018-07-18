@@ -11,29 +11,29 @@ namespace Npe.UO.BulkOrderDeeds
 
         private const string _XmlItemName = "BulkOrderDeedItem";
         private const string _NameAttributeName = "name";
-        private const string _CompletedCountAttributeName = "completedCount";
+        private const string _IsCompletedCountAttributeName = "isCompleted";
 
         public string Name { get; }
-        public int CompletedCount { get; set; }
         public int Quantity { get; }
+        public bool IsCompleted { get; set; }
 
         public CollectionBulkOrderDeedItem(string name, int quantity)
-            : this(name, quantity, 0)
+            : this(name, quantity, false)
         {
         }
 
-        public CollectionBulkOrderDeedItem(string name, int quantity, int completedCount)
+        public CollectionBulkOrderDeedItem(string name, int quantity, bool isCompleted)
         {
             Name = name;
             Quantity = quantity;
-            CompletedCount = completedCount;
+            IsCompleted = isCompleted;
         }
 
         internal void SaveToXml(XmlWriter writer)
         {
             writer.WriteStartElement(_XmlItemName);
             writer.WriteAttributeString(_NameAttributeName, Name);
-            writer.WriteAttributeString(_CompletedCountAttributeName, CompletedCount.ToString());
+            writer.WriteAttributeString(_IsCompletedCountAttributeName, IsCompleted.ToString());
             writer.WriteEndElement();
         }
 
@@ -49,13 +49,13 @@ namespace Npe.UO.BulkOrderDeeds
                     try
                     {
                         var name = node.Attributes[_NameAttributeName].Value;
-                        var completedCountString = node.Attributes[_CompletedCountAttributeName].Value;
+                        var isCompletedString = node.Attributes[_IsCompletedCountAttributeName].Value;
 
-                        if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(completedCountString))
+                        if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(isCompletedString))
                         {
-                            var completedCount = int.Parse(completedCountString);
+                            var isCompleted = bool.Parse(isCompletedString);
 
-                            retVal.Add(new CollectionBulkOrderDeedItem(name, quantity, completedCount));
+                            retVal.Add(new CollectionBulkOrderDeedItem(name, quantity, isCompleted));
                         }
                     }
                     catch
@@ -69,7 +69,9 @@ namespace Npe.UO.BulkOrderDeeds
 
         public override string ToString()
         {
-            return $"{CompletedCount}/{Quantity} {Name}";
+            var isCompletedString = IsCompleted ? " (Completed)" : String.Empty;
+
+            return $"{Quantity} {Name}{isCompletedString}";
         }
     }
 }

@@ -275,7 +275,14 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
             foreach (var bulkOrderDeed in BulkOrderDeedManager.Instance.GetFilteredCollection(_CollectionFilterParameters))
             {
-                bulkOrderDeeds.Add(new BulkOrderDeedViewModel(bulkOrderDeed));
+                if (bulkOrderDeed is SmallCollectionBulkOrderDeed smallCollectionBulkOrderDeed)
+                {
+                    bulkOrderDeeds.Add(new SmallBulkOrderDeedViewModel(smallCollectionBulkOrderDeed));
+                }
+                else if (bulkOrderDeed is LargeCollectionBulkOrderDeed largeCollectionBulkOrderDeed)
+                {
+                    bulkOrderDeeds.Add(new LargeBulkOrderDeedViewModel(largeCollectionBulkOrderDeed));
+                }
             }
 
             _AllBulkOrderDeeds = new List<BulkOrderDeedViewModel>();
@@ -613,7 +620,14 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
             foreach (var bulkOrderDeed in BulkOrderDeedManager.Instance.GetFilteredCollection(_CollectionFilterParameters))
             {
-                bulkOrderDeeds.Add(new BulkOrderDeedViewModel(bulkOrderDeed));
+                if (bulkOrderDeed is SmallCollectionBulkOrderDeed smallCollectionBulkOrderDeed)
+                {
+                    bulkOrderDeeds.Add(new SmallBulkOrderDeedViewModel(smallCollectionBulkOrderDeed));
+                }
+                else if (bulkOrderDeed is LargeCollectionBulkOrderDeed largeCollectionBulkOrderDeed)
+                {
+                    bulkOrderDeeds.Add(new LargeBulkOrderDeedViewModel(largeCollectionBulkOrderDeed));
+                }
             }
 
             _AllBulkOrderDeeds.Clear();

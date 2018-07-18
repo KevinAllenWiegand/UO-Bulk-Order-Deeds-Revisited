@@ -120,6 +120,20 @@ namespace UO_Bulk_Order_Deeds.ViewModels
             }
         }
 
+        private int _CompletedCount;
+        public int CompletedCount
+        {
+            get { return _CompletedCount; }
+            set
+            {
+                _CompletedCount = value;
+                NotifyPropertyChanged(nameof(CompletedCount));
+            }
+        }
+
+        public string DisplayName => _CollectionBulkOrderDeed.DisplayName;
+        public bool IsLargeBulkOrderDeed => _CollectionBulkOrderDeed is LargeCollectionBulkOrderDeed;
+
         public ICommand AddToCollectionCommand { get; }
         public ICommand CancelCommand { get; }
 
@@ -134,9 +148,12 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
             var bulkOrderDeedItems = new List<CollectionBulkOrderDeedItemViewModel>();
 
-            foreach (var collectionBulkOrderDeedItem in collectionBulkOrderDeed.CollectionBulkOrderDeedItems)
+            if (collectionBulkOrderDeed is LargeCollectionBulkOrderDeed largeCollectionBulkOrderDeed)
             {
-                bulkOrderDeedItems.Add(new CollectionBulkOrderDeedItemViewModel(collectionBulkOrderDeedItem));
+                foreach (var collectionBulkOrderDeedItem in largeCollectionBulkOrderDeed.CollectionBulkOrderDeedItems)
+                {
+                    bulkOrderDeedItems.Add(new CollectionBulkOrderDeedItemViewModel(collectionBulkOrderDeedItem));
+                }
             }
 
             _BulkOrderDeedItems = new ObservableCollection<CollectionBulkOrderDeedItemViewModel>(bulkOrderDeedItems);
@@ -245,6 +262,11 @@ namespace UO_Bulk_Order_Deeds.ViewModels
                     _SelectedVendor.Vendor.AddBulkOrderDeedBook(bulkOrderDeedBook);
                     _CollectionBulkOrderDeed.Location.BulkOrderDeedBook = bulkOrderDeedBook;
                 }
+            }
+
+            if (_CollectionBulkOrderDeed is SmallCollectionBulkOrderDeed smallCollectionBulkOrderDeed)
+            {
+                smallCollectionBulkOrderDeed.CompletedCount = _CompletedCount;
             }
 
             BulkOrderDeedManager.Instance.AddBulkOrderDeeds(new[] { _CollectionBulkOrderDeed });

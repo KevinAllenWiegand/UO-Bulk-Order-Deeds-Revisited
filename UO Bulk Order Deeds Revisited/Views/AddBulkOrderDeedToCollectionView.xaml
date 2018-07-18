@@ -10,6 +10,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" TrueVisibility="Collapsed" FalseVisibility="Visible" />
     </UserControl.Resources>
     <Grid Style="{StaticResource MainGrid}">
         <Grid.RowDefinitions>
@@ -46,7 +47,17 @@
                     <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource BoldLabelBlack}" Content="Amount To Make:"/>
                     <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource LabelBlack}" Content="{Binding Quantity}"/>
 
-                    <ItemsControl Grid.IsSharedSizeScope="True" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding BulkOrderDeedItems}" Style="{StaticResource TableContainer}">
+                    <StackPanel Grid.Column="0" Grid.Row="2" Visibility="{Binding IsLargeBulkOrderDeed, Converter={StaticResource ReverseBooleanToVisibilityConverter}}">
+                        <Label Content="Item Requested:" Style="{StaticResource BoldLabelBlack}" />
+                        <Label Content="{Binding DisplayName}" Style="{StaticResource BoldLabelBlack}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Grid.Row="2" Visibility="{Binding IsLargeBulkOrderDeed, Converter={StaticResource ReverseBooleanToVisibilityConverter}}">
+                        <Label Content="Completed Count:" Style="{StaticResource BoldLabelBlack}" />
+                        <xctk:IntegerUpDown Value="{Binding CompletedCount}" Minimum="0" Maximum="{Binding Quantity}" />
+                    </StackPanel>
+
+                    <ItemsControl Grid.IsSharedSizeScope="True" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding BulkOrderDeedItems}" Style="{StaticResource TableContainer}" Visibility="{Binding IsLargeBulkOrderDeed, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -56,8 +67,8 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource TableText}" Foreground="Black" Margin="0,0,5,0" />
-                                    <TextBlock Grid.Column="1" Text="{Binding Quantity}" Style="{StaticResource TableText}" Foreground="Black" />
-                                    <xctk:IntegerUpDown Grid.Column="1" Value="{Binding CompletedCount}" Minimum="0" Maximum="{Binding Quantity}" />
+                                    <!--<TextBlock Grid.Column="1" Text="{Binding Quantity}" Style="{StaticResource TableText}" Foreground="Black" />-->
+                                    <CheckBox Grid.Column="1" IsChecked="{Binding IsCompleted}" />
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
@@ -76,7 +87,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <Label Grid.Column="0" Content="Item Requested:" Style="{StaticResource BoldLabelBlack}" />
-                                        <Label Grid.Column="1" Content="Amount Finished:" Style="{StaticResource BoldLabelBlack}" />
+                                        <Label Grid.Column="1" Content="Completed:" Style="{StaticResource BoldLabelBlack}" />
                                     </Grid>
 
                                     <ItemsPresenter/>

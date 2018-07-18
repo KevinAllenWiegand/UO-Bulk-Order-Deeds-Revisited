@@ -75,6 +75,7 @@
     <Compile Include="Internal\BulkOrderDeedPointEntryComparer.cs" />
     <Compile Include="Internal\Guard.cs" />
     <Compile Include="Internal\ICloneable.cs" />
+    <Compile Include="Internal\Internals.cs" />
     <Compile Include="Internal\XmlHelper.cs" />
     <Compile Include="LargeBulkOrderDeedDefinition.cs" />
     <Compile Include="LargeBulkOrderPointTableEntry.cs" />

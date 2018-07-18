@@ -114,21 +114,21 @@ namespace Npe.UO.BulkOrderDeeds.SampleImportPlugin
 
                 if (bulkOrderDeedDefinition is SmallBulkOrderDeedDefinition smallBulkOrderDeedDefinition)
                 {
-                    var collectionBulkOrderDeed = new SmallCollectionBulkOrderDeed(profession, bulkOrderDeedDefinition, quantity, exceptional, bulkOrderDeedMaterial, vendor, bulkOrderDeedBook, random.Next(quantity));
+                    var collectionBulkOrderDeed = new SmallCollectionBulkOrderDeed(profession, smallBulkOrderDeedDefinition, quantity, exceptional, bulkOrderDeedMaterial, vendor, bulkOrderDeedBook, random.Next(quantity));
 
                     bulkOrderDeeds.Add(collectionBulkOrderDeed);
                 }
 
                 if (bulkOrderDeedDefinition is LargeBulkOrderDeedDefinition largeBulkOrderDeedDefinition)
                 {
-                    var completedCounts = new Dictionary<SmallBulkOrderDeedDefinition, int>();
+                    var completedStates = new Dictionary<SmallBulkOrderDeedDefinition, bool>();
 
                     foreach (var largeBulkOrderDeedDefinitionItem in largeBulkOrderDeedDefinition.SmallBulkOrderDeedDefinitions)
                     {
-                        completedCounts[largeBulkOrderDeedDefinitionItem] = random.Next(quantity);
+                        completedStates[largeBulkOrderDeedDefinitionItem] = random.Next(2) == 1;
                     }
 
-                    var collectionBulkOrderDeed = new LargeCollectionBulkOrderDeed(profession, bulkOrderDeedDefinition, quantity, exceptional, bulkOrderDeedMaterial, vendor, bulkOrderDeedBook, completedCounts);
+                    var collectionBulkOrderDeed = new LargeCollectionBulkOrderDeed(profession, largeBulkOrderDeedDefinition, quantity, exceptional, bulkOrderDeedMaterial, vendor, bulkOrderDeedBook, completedStates);
 
                     bulkOrderDeeds.Add(collectionBulkOrderDeed);
                 }
