@@ -180,6 +180,51 @@ namespace Npe.UO.BulkOrderDeeds
             }
         }
 
+        public void ClearCollection()
+        {
+            List<CollectionBulkOrderDeed> collectionBulkOrderDeeds;
+
+            lock (_CollectionSync)
+            {
+                collectionBulkOrderDeeds = new List<CollectionBulkOrderDeed>(_Collection);
+            }
+
+            if (collectionBulkOrderDeeds.Any())
+            {
+                RemoveBulkOrderDeeds(collectionBulkOrderDeeds);
+            }
+        }
+
+        public void ClearVendors()
+        {
+            List<Vendor> vendors;
+
+            lock (_VendorsSync)
+            {
+                vendors = new List<Vendor>(_Vendors);
+            }
+
+            foreach (var vendor in vendors)
+            {
+                RemoveVendor(vendor);
+            }
+        }
+
+        public void ClearBulkOrderDeedBooks()
+        {
+            List<BulkOrderDeedBook> bulkOrderDeedBooks;
+
+            lock (_BulkOrderDeedBooksSync)
+            {
+                bulkOrderDeedBooks = new List<BulkOrderDeedBook>(_BulkOrderDeedBooks);
+            }
+
+            foreach (var bulkOrderDeedBook in bulkOrderDeedBooks)
+            {
+                RemoveBulkOrderDeedBook(bulkOrderDeedBook);
+            }
+        }
+
         public void LoadCollection()
         {
             lock (_CollectionSync)

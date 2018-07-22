@@ -557,7 +557,6 @@ namespace UO_Bulk_Order_Deeds.ViewModels
 
         private void ImportCompleted(object sender, EventArgs e)
         {
-            _NeedsRefresh = true;
             RefreshIfNecessary();
         }
 

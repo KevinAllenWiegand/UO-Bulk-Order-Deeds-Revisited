@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UO Bulk Order Deeds Revisited", "UO Bulk Order Deeds Revisited\UO Bulk Order Deeds Revisited.csproj", "{961F92E4-D9CA-48DC-A925-3FF0AB8B8B92}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D58D1475-4190-47AC-8C7E-F709A30018E1} = {D58D1475-4190-47AC-8C7E-F709A30018E1}
+		{72E993D5-F3D1-45F9-97A0-56DA8D59F4C4} = {72E993D5-F3D1-45F9-97A0-56DA8D59F4C4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Npe.UO.BulkOrderDeeds", "Npe.UO.BulkOrderDeeds\Npe.UO.BulkOrderDeeds.csproj", "{933571E7-4AD5-45C3-87EB-1405763C7D2B}"
 EndProject
