@@ -10,6 +10,9 @@
              Height="225" Width="700"
              ResizeMode="NoResize">
     <Window.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:BooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" TrueVisibility="Collapsed" FalseVisibility="Visible" />
+
         <Style TargetType="Label">
             <Setter Property="Margin" Value="0"/>
             <Setter Property="Padding" Value="0"/>
@@ -21,55 +24,141 @@
             <Setter Property="Padding" Value="0"/>
             <Setter Property="Margin" Value="0,0,10,0" />
         </Style>
+
+        <Style TargetType="TextBlock" x:Key="ErrorLabel">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <SolidColorBrush x:Key="ProgressBar.Progress" Color="#FF06B025"/>
+        <SolidColorBrush x:Key="ProgressBar.Background" Color="#FFE6E6E6"/>
+        <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>
+        <Style x:Key="ProgressBarStyle" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground" Value="{StaticResource ProgressBar.Progress}"/>
+            <Setter Property="Background" Value="{StaticResource ProgressBar.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ProgressBar.Border}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid x:Name="TemplateRoot">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Determinate"/>
+                                    <VisualState x:Name="Indeterminate">
+                                        <Storyboard RepeatBehavior="Forever">
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Animation">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
+                                                <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
+                                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
+                                                <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
+                                            </PointAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
+                            <Rectangle x:Name="PART_Track"/>
+                            <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left">
+                                <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}"/>
+                                <Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </Grid>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="{Binding ImportedCount}" Margin="0" />
+                                <Label Content="of" Margin="3,0,3,0" />
+                                <Label Content="{Binding TotalBulkOrderDeeds}" Margin="0" />
+                            </StackPanel>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Orientation" Value="Vertical">
+                                <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsIndeterminate" Value="true">
+                                <Setter Property="Visibility" TargetName="Indicator" Value="Collapsed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid Margin="5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <Label Grid.Column="0" Grid.Row="0" Content="Import File:" Style="{StaticResource LabelHeader}" />
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding CollectionFile}" TextWrapping="Wrap" />
-
-        <Label Grid.Column="0" Grid.Row="1" Content="Total Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="1"  Content="{Binding TotalBulkOrderDeeds}" />
-
-        <Label Grid.Column="0" Grid.Row="2" Content="Tailor Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="2"  Content="{Binding TotalTailorBulkOrderDeeds}" />
-
-        <Label Grid.Column="0" Grid.Row="3" Content="Tailor Small Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="3"  Content="{Binding TotalTailorSmallBulkOrderDeeds}" />
-
-        <Label Grid.Column="0" Grid.Row="4" Content="Tailor Large Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="4"  Content="{Binding TotalTailorLargeBulkOrderDeeds}" />
-
-        <Label Grid.Column="0" Grid.Row="5" Content="Blacksmith Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="5"  Content="{Binding TotalBlacksmithBulkOrderDeeds}" />
-
-        <Label Grid.Column="0" Grid.Row="6" Content="Blacksmith Small Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="6"  Content="{Binding TotalBlacksmithSmallBulkOrderDeeds}" />
-
-        <Label Grid.Column="0" Grid.Row="7" Content="Blacksmith Large Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
-        <Label Grid.Column="1" Grid.Row="7"  Content="{Binding TotalBlacksmithLargeBulkOrderDeeds}" />
-
-        <CheckBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" Content="Reset Books and Collection on Import" IsChecked="{Binding ResetCollection}" HorizontalAlignment="Right" />
-
-        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" HorizontalAlignment="Right">
-            <Button Content="Import" Command="{Binding ImportCommand}" CommandParameter="{Binding ElementName=ImportWindow}" Padding="5" Margin="5" />
-            <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=ImportWindow}" Padding="5" Margin="5" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding SuccessfullyLoaded, Converter={StaticResource ReverseBooleanToVisibilityConverter}}">
+            <TextBlock Text="The collection file from the previous Bulk Order Deed program could not be located.  Please be sure that the old version is installed, and that you have a Bulk Order Deed collection saved." Style="{StaticResource ErrorLabel}" />
         </StackPanel>
+        <Grid Visibility="{Binding SuccessfullyLoaded, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Import File:" Style="{StaticResource LabelHeader}" />
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding CollectionFile}" TextWrapping="Wrap" />
+
+            <Label Grid.Column="0" Grid.Row="1" Content="Total Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="1"  Content="{Binding TotalBulkOrderDeeds}" />
+
+            <Label Grid.Column="0" Grid.Row="2" Content="Tailor Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="2"  Content="{Binding TotalTailorBulkOrderDeeds}" />
+
+            <Label Grid.Column="0" Grid.Row="3" Content="Tailor Small Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="3"  Content="{Binding TotalTailorSmallBulkOrderDeeds}" />
+
+            <Label Grid.Column="0" Grid.Row="4" Content="Tailor Large Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="4"  Content="{Binding TotalTailorLargeBulkOrderDeeds}" />
+
+            <Label Grid.Column="0" Grid.Row="5" Content="Blacksmith Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="5"  Content="{Binding TotalBlacksmithBulkOrderDeeds}" />
+
+            <Label Grid.Column="0" Grid.Row="6" Content="Blacksmith Small Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="6"  Content="{Binding TotalBlacksmithSmallBulkOrderDeeds}" />
+
+            <Label Grid.Column="0" Grid.Row="7" Content="Blacksmith Large Bulk Order Deeds:" Style="{StaticResource LabelHeader}" />
+            <Label Grid.Column="1" Grid.Row="7"  Content="{Binding TotalBlacksmithLargeBulkOrderDeeds}" />
+
+            <CheckBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" Content="Reset Books and Collection on Import" IsChecked="{Binding ResetCollection}" IsEnabled="{Binding IsImportActive, Converter={StaticResource ReverseBooleanToVisibilityConverter}}" HorizontalAlignment="Right" />
+
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9">
+                <ProgressBar HorizontalAlignment="Left" Height="20" Width="300" Value="{Binding ImportedCount}" Maximum="{Binding TotalBulkOrderDeeds}" Visibility="{Binding IsImportActive, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{DynamicResource ProgressBarStyle}" />
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Import" Command="{Binding ImportCommand}" CommandParameter="{Binding ElementName=ImportWindow}" Padding="5" Margin="5" />
+                    <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=ImportWindow}" Padding="5" Margin="5" />
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -130,13 +130,47 @@ namespace Npe.UO.BulkOrderDeeds.BuiltInImportPlugins
             }
         }
 
+        private bool _SuccessfullyLoaded;
+        public bool SuccessfullyLoaded
+        {
+            get { return _SuccessfullyLoaded; }
+            set
+            {
+                _SuccessfullyLoaded = value;
+                NotifyPropertyChanged(nameof(SuccessfullyLoaded));
+            }
+        }
+
+        private bool _IsImportActive;
+        public bool IsImportActive
+        {
+            get { return _IsImportActive; }
+            set
+            {
+                _IsImportActive = value;
+                CommandManager.InvalidateRequerySuggested();
+                NotifyPropertyChanged(nameof(IsImportActive));
+            }
+        }
+
+        private int _ImportedCount;
+        public int ImportedCount
+        {
+            get { return _ImportedCount; }
+            set
+            {
+                _ImportedCount = value;
+                NotifyPropertyChanged(nameof(ImportedCount));
+            }
+        }
+
         public ICommand ImportCommand { get; }
         public ICommand CancelCommand { get; }
 
         public ImportViewModel()
         {
-            ImportCommand = new RelayCommand(OnImportCommand, () => ImportableBulkOrderDeeds.Count > 0);
-            CancelCommand = new RelayCommand(OnCancelCommand);
+            ImportCommand = new RelayCommand(OnImportCommand, ImportCommandEnabled);
+            CancelCommand = new RelayCommand(OnCancelCommand, CancelCommandEnabled);
 
             _BodBooks = new Dictionary<Guid, string>();
             _ImportableBulkOrderDeeds = new ObservableCollection<ImportableBulkOrderDeed>();
@@ -148,6 +182,17 @@ namespace Npe.UO.BulkOrderDeeds.BuiltInImportPlugins
 
             _CollectionFile = collectionFile;
             LoadCollection();
+            _SuccessfullyLoaded = true;
+        }
+
+        private bool ImportCommandEnabled()
+        {
+            return !_IsImportActive && _ImportableBulkOrderDeeds.Count > 0;
+        }
+
+        private bool CancelCommandEnabled()
+        {
+            return !IsImportActive;
         }
 
         private void LoadCollection()
@@ -170,6 +215,9 @@ namespace Npe.UO.BulkOrderDeeds.BuiltInImportPlugins
 
         private void OnImportCommand(object parameter)
         {
+            ImportedCount = 0;
+            IsImportActive = true;
+
             if (_ResetCollection)
             {
                 BulkOrderDeedManager.Instance.ClearBulkOrderDeedBooks();
@@ -187,13 +235,15 @@ namespace Npe.UO.BulkOrderDeeds.BuiltInImportPlugins
             {
                 var collectionBulkOrderDeed = CreateCollectionBulkOrderDeed(bulkOrderDeed);
 
+                ImportedCount++;
+
                 if (collectionBulkOrderDeed == null) continue;
 
                 bulkOrderDeeds.Add(collectionBulkOrderDeed);
             }
 
             BulkOrderDeedManager.Instance.AddBulkOrderDeeds(bulkOrderDeeds);
-
+            IsImportActive = false;
             ((Window)parameter).Close();
         }
 
