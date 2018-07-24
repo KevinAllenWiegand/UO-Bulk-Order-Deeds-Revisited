@@ -18,7 +18,8 @@ namespace UO_Bulk_Order_Deeds.ViewModels
         {
             NavigateToProfessionCommand = new RelayCommand(OnNavigateToProfessionCommand);
             _Profession = profession;
-            ProfessionIcon = new BitmapImage(new Uri($"/Icons/{_Profession.Name}.gif", UriKind.Relative));
+            ProfessionIcon = new BitmapImage(new Uri(profession.IconPath, UriKind.Relative));
+            ProfessionIcon.Freeze();
         }
 
         private void OnNavigateToProfessionCommand(object parameter)

@@ -645,28 +645,28 @@
     <Resource Include="Resources\Back.png" />
     <Resource Include="Resources\Gear.png" />
     <Resource Include="Bulk Order Deed.ico" />
-    <Content Include="Icons\Alchemy.gif">
+    <Content Include="Professions\Alchemy\Alchemy.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Blacksmithing.gif">
+    <Content Include="Professions\Blacksmithing\Blacksmithing.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Bowcraft.gif">
+    <Content Include="Professions\Bowcraft\Bowcraft.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Carpentry.gif">
+    <Content Include="Professions\Carpentry\Carpentry.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Cooking.gif">
+    <Content Include="Professions\Cooking\Cooking.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Inscription.gif">
+    <Content Include="Professions\Inscription\Inscription.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Tailoring.gif">
+    <Content Include="Professions\Tailoring\Tailoring.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Tinkering.gif">
+    <Content Include="Professions\Tinkering\Tinkering.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Professions\Bowcraft\PointRewards.xml">

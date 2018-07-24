@@ -18,6 +18,7 @@ namespace Npe.UO.BulkOrderDeeds
         private const string _BankedPointsFactorSmallXPath = "Profession/BankedPointsFactor/Small";
         private const string _BankedPointsFactorLargeXPath = "Profession/BankedPointsFactor/Large";
 
+        private readonly string _BasePath;
         private readonly string _MaterialsDataFile;
 
         public string Name { get; private set; }
@@ -27,22 +28,24 @@ namespace Npe.UO.BulkOrderDeeds
         public BulkOrderDeedMaterials BulkOrderDeedMaterials { get; private set; }
         public PointRewards PointRewards { get; private set; }
         public PointTable PointTable { get; private set; }
+        public string IconPath { get; private set; }
 
         internal Profession(string path)
         {
             Guard.ArgumentNotNullOrEmpty(nameof(path), path);
 
-            var basePath = $"{path}\\";
-            var bulkOrderDeedsDataFile = basePath + _BulkOrderDeedsDataFileName;
-            var professionDataFile = basePath + _ProfessionDataFileName;
-            var pointRewardsDataFile = basePath + _PointRewardsDataFileName;
-            var pointTableDataFile = basePath + _PointTableDataFileName;
+            _BasePath = $"{path}\\";
 
-            _MaterialsDataFile = basePath + _MaterialsDataFileName;
+            var bulkOrderDeedsDataFile = _BasePath + _BulkOrderDeedsDataFileName;
+            var professionDataFile = _BasePath + _ProfessionDataFileName;
+            var pointRewardsDataFile = _BasePath + _PointRewardsDataFileName;
+            var pointTableDataFile = _BasePath + _PointTableDataFileName;
+
+            _MaterialsDataFile = _BasePath + _MaterialsDataFileName;
 
             if (!File.Exists(bulkOrderDeedsDataFile))
             {
-                throw new Exception($"Unable to load profession from \"{path}\", {_BulkOrderDeedsDataFileName} is missing.");
+                throw new Exception($"Unable to load profession from \"{_BasePath}\", {_BulkOrderDeedsDataFileName} is missing.");
             }
 
             if (File.Exists(_MaterialsDataFile))
@@ -52,17 +55,17 @@ namespace Npe.UO.BulkOrderDeeds
 
             if (!File.Exists(professionDataFile))
             {
-                throw new Exception($"Unable to load profession from \"{path}\", {_ProfessionDataFileName} is missing.");
+                throw new Exception($"Unable to load profession from \"{_BasePath}\", {_ProfessionDataFileName} is missing.");
             }
 
             if (!File.Exists(pointRewardsDataFile))
             {
-                throw new Exception($"Unable to load profession from \"{path}\", {_PointRewardsDataFileName} is missing.");
+                throw new Exception($"Unable to load profession from \"{_BasePath}\", {_PointRewardsDataFileName} is missing.");
             }
 
             if (!File.Exists(pointTableDataFile))
             {
-                throw new Exception($"Unable to load profession from \"{path}\", {_PointTableDataFileName} is missing.");
+                throw new Exception($"Unable to load profession from \"{_BasePath}\", {_PointTableDataFileName} is missing.");
             }
 
             BulkOrderDeedDefinitions = new BulkOrderDeedDefinitions(bulkOrderDeedsDataFile);
@@ -83,6 +86,13 @@ namespace Npe.UO.BulkOrderDeeds
             var largeBankedPointsFactorNode = xmlDocument.SelectSingleNode(_BankedPointsFactorLargeXPath);
 
             Name = XmlHelper.GetNodeValue<string>(professionNameNode);
+            IconPath = $"{_BasePath}{Name}.gif";
+
+            if (!File.Exists(IconPath))
+            {
+                throw new Exception($"Unable to load profession from \"{_BasePath}\", {Name}.gif is missing.");
+            }
+
             SmallBankedPointsFactor = XmlHelper.GetNodeValue<double>(smallBankedPointsFactorNode);
             LargeBankedPointsFactor = XmlHelper.GetNodeValue<double>(largeBankedPointsFactorNode);
 
