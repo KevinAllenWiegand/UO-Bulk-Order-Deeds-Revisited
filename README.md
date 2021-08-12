@@ -16,7 +16,7 @@ The basic procedure for creating an import plugin is as follows:
 As stated, there is a sample import plugin that you can look at/use.  Please be aware that if you use the sample plugin, it will OVERWRITE your Vendors / Bulk Order Deed Books / Collection, so please use it with caution.
 
 # Contribute
-I am not taking direct contributions to the code, but if you have suggestions, please email me at greatpumpkinator@hotmail.com.
+This repository is no longer maintained, as I've not played Ultima Online in years, and will likely not again.
 
 # License
 This project is licensed under the MIT License - see the LICENSE.md file for details.  Note...the provisions of the license states that you can "sell copies of the Software".  Lemme say one thing:  This is free software - if you try and sell it, you're a douchebag, and you will burn in hell for eternity.  Don't sell it.  Not that anyone would pay for it, but don't do it, you're a fucktard if you do.
