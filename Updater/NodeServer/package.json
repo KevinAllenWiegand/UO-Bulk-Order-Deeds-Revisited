@@ -14,7 +14,7 @@
     "express": "^4.15.3",
 	"mkdir-recursive": "^0.3.0",
 	"moment": "^2.18.1",
-	"underscore": "1.8.3",
+	"underscore": "1.13.8",
 	"uuid": "^3.2.1",
 	"sanitize-filename": "^1.6.1"
   }
